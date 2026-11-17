@@ -163,3 +163,49 @@ body.legacy-page.awareness-page .ring text {
   stroke-width:2px!important;
   stroke-linejoin:round!important;
 }
+
+
+/* V8 — readability on Mind Exploration and Humor.
+   The original modules use hardcoded white cards. Keep the unified navy/gold
+   palette and override BOTH background and text, not just either one. */
+body.legacy-page .steps-wrap .step {
+  background:#1f3044!important;
+  color:#f5f4ef!important;
+  border:1px solid #52647b!important;
+}
+body.legacy-page .steps-wrap .step :is(h2,h3,h4,strong) {
+  color:#f5f4ef!important;
+  opacity:1!important;
+}
+body.legacy-page .steps-wrap .step :is(p,li,label,span,.lang-section) {
+  color:#dce6f0!important;
+  opacity:1!important;
+}
+body.legacy-page .steps-wrap .step :is(input,textarea,select) {
+  background:#101d2b!important;
+  color:#f5f4ef!important;
+}
+body.legacy-page #accordion details.joke,
+body.legacy-page #accordion details.joke[open] {
+  background:#1f3044!important;
+  border:1px solid #52647b!important;
+  color:#f5f4ef!important;
+  box-shadow:none!important;
+}
+body.legacy-page #accordion details.joke summary,
+body.legacy-page #accordion details.joke .body {
+  background:transparent!important;
+  color:#f5f4ef!important;
+  opacity:1!important;
+}
+body.legacy-page #accordion details.joke :is(p,li,span,strong,em,.lang-section) {
+  color:#e3eaf2!important;
+  opacity:1!important;
+}
+body.legacy-page #accordion details.joke :is(h2,h3,h4) {
+  color:#f5d9aa!important;
+}
+body.legacy-page #accordion details.joke summary:hover,
+body.legacy-page #accordion details.joke summary:focus-visible {
+  background:#2b4055!important;
+}
