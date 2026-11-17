@@ -209,3 +209,68 @@ body.legacy-page #accordion details.joke summary:hover,
 body.legacy-page #accordion details.joke summary:focus-visible {
   background:#2b4055!important;
 }
+
+
+/* V9 — interactive six-stage Mind Exploration, as deployed on GitHub.
+   Scope everything to #mind-explorer; do not alter other pages. */
+body.legacy-page #mind-explorer .explorer-intro,
+body.legacy-page #mind-explorer .explorer-step,
+body.legacy-page #mind-explorer .summary {
+  background:#1f3044!important;
+  color:#f5f4ef!important;
+  border:1px solid #52647b!important;
+  box-shadow:none!important;
+}
+body.legacy-page #mind-explorer :is(.explorer-intro,.explorer-step,.summary)
+:is(p,h2,h3,h4,li,label,legend,span,strong,em,.lead,.hint,.summary-value,.summary-label,.progress-meta,.range-value) {
+  color:#e5edf5!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+body.legacy-page #mind-explorer :is(.explorer-intro,.explorer-step,.summary)
+:is(h2,h3,h4,strong) {
+  color:#f5d9aa!important;
+}
+body.legacy-page #mind-explorer :is(.explorer-intro,.explorer-step,.summary)
+:is(.hint,.lead,.progress-meta,.summary-label) {
+  color:#c4d3e3!important;
+}
+body.legacy-page #mind-explorer :is(.choice,.decision-card) {
+  background:#26394f!important;
+  border:1px solid #60758a!important;
+  color:#e5edf5!important;
+}
+body.legacy-page #mind-explorer :is(.choice,.decision-card) :is(span,strong,label) {
+  color:#e5edf5!important;
+}
+body.legacy-page #mind-explorer :is(textarea,input[type=text],select) {
+  background:#101d2b!important;
+  border:1px solid #738399!important;
+  color:#f5f4ef!important;
+  opacity:1!important;
+}
+body.legacy-page #mind-explorer :is(textarea,input[type=text])::placeholder {
+  color:#b7c9d9!important;
+  opacity:1!important;
+}
+body.legacy-page #mind-explorer .logic-alert,
+body.legacy-page #mind-explorer .validation {
+  background:#493725!important;
+  color:#ffdfac!important;
+  border-color:#d7b87e!important;
+}
+body.legacy-page #mind-explorer :is(.logic-alert,.validation) :is(span,strong) {
+  color:#ffdfac!important;
+}
+body.legacy-page #mind-explorer .btn-secondary {
+  background:#354b62!important;
+  color:#f5f4ef!important;
+}
+body.legacy-page #mind-explorer .btn-ghost {
+  background:#1c2b3d!important;
+  color:#f5d9aa!important;
+}
+body.legacy-page #mind-explorer .btn-primary {
+  background:#d7b87e!important;
+  color:#152236!important;
+}
