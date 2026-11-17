@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ya-e.in.ua/sitemap.xml

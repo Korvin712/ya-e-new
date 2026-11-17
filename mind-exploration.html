@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Мисленне Дослідження — Інтерактивна перевірка думки | Я є</title>
+<link href="https://ya-e.in.ua/mind-exploration.html" rel="canonical"/>
+<meta content="Інтерактивний інструмент для дослідження думки: походження, реакція, вплив, факти та власний висновок." name="description"/>
+<meta content="index, follow" name="robots"/>
+<!-- Open Graph -->
+<meta content="Мисленне Дослідження — Інтерактивна перевірка думки | Я є" property="og:title"/>
+<meta content="Інтерактивний інструмент для дослідження думки: походження, реакція, вплив, факти та власний висновок." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="images/ya-e-og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="uk_UA" property="og:locale"/>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/>
+<!-- Fonts -->
+<link crossorigin="" href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --primary-color:#172334;
+      --secondary-color:#344459;
+      --button-bg:#24354a;
+      --button-hover:#344d68;
+      --gray-50:#f3f0ea;
+      --white:#ffffff;
+      --link-hover:#f5d9aa;
+      --text:#1c2733;
+      --lang-toggle-bg:#f8f5ef;
+      --lang-toggle-text:#172334;
+      --lang-toggle-border:#66798f;
+    }
+
+    *,*::before,*::after{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; padding:0; color:var(--text); background:var(--white);
+      font-family:'Lora',serif; line-height:1.6; display:flex; flex-direction:column;
+    }
+
+    /* Utilities */
+    .container{ max-width:1200px; margin:0 auto; padding:0 1rem; }
+    .page-wrap{ flex:1; }
+    .text-center{ text-align:center; }
+    .text-left{ text-align:left; }
+    .text-white{ color:#fff; }
+    .py-20{ padding:5rem 0; } .py-16{ padding:4rem 0; }
+    .mb-4{ margin-bottom:1rem; } .mb-6{ margin-bottom:1.5rem; }
+    .mt-4{ margin-top:1rem; } .mt-6{ margin-top:1.5rem; } .mt-8{ margin-top:2rem; }
+    .text-5xl{ font-size:3rem; } .text-3xl{ font-size:1.875rem; } .text-2xl{ font-size:1.5rem; } .text-xl{ font-size:1.25rem; } .text-lg{ font-size:1.125rem; }
+    .font-bold{ font-weight:700; } .font-semibold{ font-weight:600; } .font-lora{ font-family:'Lora',serif; }
+    .bg-white{ background-color:#fff; } .bg-gray-50{ background-color:var(--gray-50); }
+    .bg-gradient-to-r{ background:linear-gradient(to right,var(--primary-color),var(--secondary-color)); }
+
+    /* Nav */
+    nav{
+      background:linear-gradient(to right,var(--primary-color),var(--secondary-color));
+      color:#fff; position:sticky; top:0; z-index:10;
+    }
+    nav .container{ display:flex; align-items:center; justify-content:space-between; padding:1rem 1rem; }
+    .logo-link{ display:flex; align-items:center; gap:0.5rem; color:#fff; text-decoration:none; font-weight:700; font-size:1.5rem; }
+    .logo-img{ width:32px; height:32px; }
+
+    .menu-toggle{ display:none; font-size:1.5rem; background:none; border:none; color:#fff; cursor:pointer; }
+
+    #primary-nav{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; }
+    #primary-nav a{
+      color:#fff; text-decoration:none; padding:0.5rem; display:block; font-size:0.9375rem;
+      transition:transform .2s ease,color .2s ease;
+    }
+    #primary-nav a:hover,#primary-nav a:focus{ color:var(--link-hover); transform:scale(1.03); }
+    #primary-nav a.active,#primary-nav a[aria-current="page"]{ color:var(--link-hover); text-decoration:underline; }
+
+    .lang-toggle{
+      cursor:pointer; font-weight:700; color:var(--lang-toggle-text);
+      background:var(--lang-toggle-bg); border:2px solid var(--lang-toggle-border);
+      padding:0.5rem 1rem; border-radius:9999px; font-size:1.125rem;
+      transition:background-color .3s ease, transform .2s ease; margin-left:1rem;
+    }
+    .lang-toggle:hover,.lang-toggle:focus{ background:#e0e0e0; transform:scale(1.05); }
+
+    .lang-section{ display:none; }
+    .lang-section.active{ display:inline; }
+
+    /* Hero */
+    .animate-fade-in{ animation:fadeIn 1s ease-in; }
+    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+
+    /* Steps */
+    .steps-wrap{ max-width:820px; margin:0 auto; }
+    .step{
+      background:#fff; border-radius:0.5rem; padding:1.5rem; margin-bottom:1.25rem;
+      box-shadow:0 2px 4px rgba(0,0,0,0.08);
+    }
+    .step h2{ color:var(--secondary-color); margin:0 0 .5rem 0; font-size:1.4rem; }
+    .step p{ margin:0.5rem 0; }
+
+    /* Footer */
+    footer{ background:var(--primary-color); color:#fff; text-align:center; padding:1.5rem 1rem; }
+    footer a{ color:var(--link-hover); text-decoration:underline; }
+    .footer-note{ font-size:0.875rem; margin-top:0.5rem; }
+
+    /* Responsive */
+    @media (min-width:768px){ .md\:text-6xl{ font-size:3.75rem; } }
+    @media (max-width:768px){
+      .menu-toggle{ display:inline-block; }
+      #primary-nav{
+        position:absolute; left:0; top:100%; width:100%;
+        background:linear-gradient(to right,var(--primary-color),var(--secondary-color));
+        flex-direction:column; gap:0; padding:0.75rem 1rem; display:none;
+        box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      }
+      #primary-nav.active{ display:flex; }
+      #primary-nav li + li{ margin-top:0.25rem; }
+      nav .container{ flex-wrap:wrap; gap:0.5rem; }
+      .lang-toggle{ font-size:1rem; padding:0.4rem 0.8rem; }
+
+      .py-20{ padding:1.5rem 0; } .py-16{ padding:1.25rem 0; }
+      .text-5xl{ font-size:1.75rem; } .md\:text-6xl{ font-size:2rem; }
+      .text-3xl{ font-size:1.5rem; } .text-2xl{ font-size:1.25rem; } .text-xl,.text-lg{ font-size:1rem; }
+    }
+    @media (max-width:480px){
+      .logo-img{ width:24px; height:24px; }
+      .logo-link{ font-size:1rem; }
+      .lang-toggle{ font-size:0.95rem; }
+      .text-5xl{ font-size:1.5rem; } .md\:text-6xl{ font-size:1.75rem; }
+      .text-3xl{ font-size:1.25rem; } .text-2xl{ font-size:1rem; }
+    }
+
+
+    /* Interactive thought explorer */
+    .explorer{max-width:900px;margin:0 auto;}
+    .explorer-intro{background:#f8f5ef;border:1px solid #d8d1c5;border-radius:16px;padding:1.25rem 1.4rem;margin-bottom:1.25rem;box-shadow:0 2px 10px rgba(23,35,52,.06);}
+    .explorer-intro strong{color:var(--primary-color);}
+    .progress-shell{height:10px;background:#d9dee4;border-radius:999px;overflow:hidden;margin:.75rem 0 .4rem;}
+    .progress-bar{height:100%;width:16.666%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));transition:width .25s ease;}
+    .progress-meta{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;color:#596879;}
+    .explorer-step{display:none;background:#fffdf9;border-radius:16px;padding:1.5rem;margin-top:1rem;box-shadow:0 4px 16px rgba(23,35,52,.08);border:1px solid #d8d1c5;}
+    .explorer-step.active{display:block;}
+    .explorer-step h2{color:var(--secondary-color);margin:.1rem 0 .55rem;font-size:1.45rem;}
+    .explorer-step .lead{margin:.25rem 0 1rem;color:#465667;}
+    .field{margin:1rem 0;}
+    .field label,.field legend{display:block;font-weight:700;margin-bottom:.45rem;color:#223244;}
+    .field textarea,.field input[type=text]{width:100%;min-height:110px;border:1px solid #b8c2cc;border-radius:10px;padding:.8rem .9rem;font:inherit;line-height:1.5;background:#fffdf9;color:#1c2733;resize:vertical;}
+    .field input[type=text]{min-height:auto;}
+    .field textarea:focus,.field input[type=text]:focus{outline:3px solid rgba(102,121,143,.22);border-color:var(--button-bg);}
+    .hint{font-size:.92rem;color:#667484;margin-top:.45rem;}
+    .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.65rem;}
+    .choice{display:flex;align-items:flex-start;gap:.55rem;border:1px solid #c9d0d7;border-radius:10px;padding:.7rem .8rem;background:#f7f4ee;}
+    .choice input{margin-top:.25rem;}
+    .range-row{display:flex;align-items:center;gap:1rem;}
+    .range-row input[type=range]{flex:1;}
+    .range-value{min-width:2.2rem;text-align:center;font-weight:700;color:var(--primary-color);}
+    .logic-alert{display:none;border-left:4px solid #b9874f;background:#fff8ee;padding:.8rem 1rem;border-radius:8px;margin:.8rem 0;color:#6f4b25;}
+    .logic-alert.show{display:block;}
+    .nav-actions{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-top:1.4rem;}
+    .btn-explorer{border:0;border-radius:10px;padding:.72rem 1.05rem;font:inherit;font-weight:700;cursor:pointer;min-height:44px;}
+    .btn-primary{background:var(--button-bg);color:#fff;}
+    .btn-primary:hover{background:var(--button-hover);}
+    .btn-secondary{background:#dfe5ea;color:#172334;}
+    .btn-ghost{background:#fffdf9;color:var(--primary-color);border:1px solid #66798f;}
+    .validation{min-height:1.35rem;color:#9b2c2c;font-size:.9rem;margin-top:.35rem;}
+    .summary{display:none;background:#fffdf9;border-radius:16px;padding:1.5rem;margin-top:1rem;border:1px solid #66798f;box-shadow:0 4px 16px rgba(23,35,52,.08);}
+    .summary.active{display:block;}
+    .summary h2{color:var(--primary-color);margin-top:0;}
+    .summary-item{padding:.85rem 0;border-bottom:1px solid #dce1e6;}
+    .summary-item:last-child{border-bottom:0;}
+    .summary-label{font-weight:700;color:#596879;font-size:.9rem;margin-bottom:.2rem;}
+    .summary-value{white-space:pre-wrap;overflow-wrap:anywhere;}
+    .decision-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+    .decision-card{border:1px solid #c9d0d7;border-radius:10px;padding:.75rem;background:#f7f4ee;}
+    .decision-card input{margin-right:.45rem;}
+    @media (max-width:640px){.choice-grid,.decision-row{grid-template-columns:1fr}.explorer-step,.summary{padding:1rem}.progress-meta{font-size:.82rem}.nav-actions .btn-explorer{flex:1 1 auto}}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+  
+    /* Wide-menu fallback: collapse long navigation on laptop widths */
+    @media (min-width:769px) and (max-width:1900px){
+      .menu-toggle{display:inline-block!important}
+      #primary-nav{display:none!important;position:absolute!important;top:100%!important;left:0!important;width:100%!important;background:linear-gradient(to right,#172334,#344459)!important;padding:1rem!important;box-shadow:0 4px 8px rgba(0,0,0,.2)!important;flex-direction:column!important;gap:.5rem!important;z-index:50!important;max-height:calc(100vh - 88px);overflow-y:auto}
+      #primary-nav.active{display:flex!important}
+    }
+    @media (min-width:1901px){
+      .nav-wrap,nav .container{max-width:1800px!important}
+    }
+</style>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/><link href="assets/site.css" rel="stylesheet"/><script>try{var ul=new URLSearchParams(location.search).get("lang");if(ul==="uk"||ul==="en")localStorage.setItem("lang",ul)}catch(e){}</script></link><link href="assets/theme-v2.css" rel="stylesheet"/></head>
+<body class="legacy-page">
+<nav role="navigation">
+<div class="container">
+<a aria-label="Перейти на головну сторінку / Go to homepage" class="logo-link" href="index.html">
+<img alt="Логотип Я є / I Am logo" class="logo-img" height="32" src="images/favicon-v2.png" width="32"/>
+<span class="logo-text">
+<span class="lang-section lang-uk active" lang="uk">Я є</span>
+<span class="lang-section lang-en" lang="en">I Am</span>
+</span>
+</a>
+<div style="display:flex; align-items:center; gap:0.5rem; margin-left:auto;">
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Переключити меню навігації / Toggle navigation menu" class="menu-toggle">☰</button>
+<button aria-label="Переключити мову / Toggle language" class="lang-toggle" type="button">UA / EN</button>
+</div>
+<ul id="primary-nav">
+<li><a href="index.html"><span class="lang-uk">Головна</span><span class="lang-en" hidden="">Home</span></a></li>
+<li><a href="archetypes.html"><span class="lang-uk">Про архетипи</span><span class="lang-en" hidden="">About Archetypes</span></a></li>
+<li><a href="about.html"><span class="lang-uk">Про мене</span><span class="lang-en" hidden="">About Me</span></a></li>
+<li><a href="tools.html"><span class="lang-uk">Інструменти</span><span class="lang-en" hidden="">Tools</span></a></li>
+<li><a href="archetype-test.html"><span class="lang-uk">Тест архетипів</span><span class="lang-en" hidden="">Archetype Test</span></a></li>
+<li><a href="unravel-situation.html"><span class="lang-uk">Розплутувач ситуації</span><span class="lang-en" hidden="">Situation Unraveler</span></a></li>
+<li><a href="map-awareness-test-v2.html"><span class="lang-uk">Мапа усвідомлення — Тест V2</span><span class="lang-en" hidden="">Map of Awareness — Test V2</span></a></li>
+<li><a href="mind-exploration.html"><span class="lang-uk">Мисленне Дослідження</span><span class="lang-en" hidden="">Mental Exploration</span></a></li>
+<li><a href="unravel-anxiety.html"><span class="lang-uk">Розплутування Тривоги</span><span class="lang-en" hidden="">Anxiety Knot Unraveler</span></a></li>
+<li><a href="blog.html"><span class="lang-uk">Як жити далі?</span><span class="lang-en" hidden="">How to Live On?</span></a></li>
+<li><a href="humor.html"><span class="lang-uk">Гумор</span><span class="lang-en" hidden="">Humor</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Прайс</span><span class="lang-en" hidden="">Pricing</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Контакти</span><span class="lang-en" hidden="">Contact</span></a></li>
+</ul>
+</div>
+</nav>
+<main class="page-wrap">
+<!-- Hero -->
+<section class="bg-gradient-to-r text-white py-20 text-center animate-fade-in">
+<div class="container">
+<h1 class="text-5xl md:text-6xl font-bold font-lora mb-4">
+<span class="lang-section lang-uk active" lang="uk">Мисленне Дослідження: Перевір свою думку</span>
+<span class="lang-section lang-en" lang="en">Mental Exploration: Examine Your Thought</span>
+</h1>
+<p class="text-xl" style="max-width:60ch; margin:0 auto;">
+<span class="lang-section lang-uk active" lang="uk">Не вирішує за тебе, чи думка «твоя». Допомагає розібрати, звідки вона взялася, як впливає на тебе і наскільки витримує перевірку реальністю.</span>
+<span class="lang-section lang-en" lang="en">It does not decide whether a thought is “yours.” It helps you examine where it came from, how it affects you, and how well it holds up against reality.</span>
+</p>
+</div>
+</section>
+<!-- Interactive exploration -->
+<section class="py-16 bg-gray-50">
+  <div class="container explorer" id="mind-explorer">
+    <div class="explorer-intro">
+      <p style="margin-top:0">
+        <span class="lang-section lang-uk active" lang="uk"><strong>Одна думка — шість перевірок.</strong> Не треба доводити, що вона правильна чи неправильна. Просто проведи її через походження, реакцію, наслідки й факти.</span>
+        <span class="lang-section lang-en" lang="en"><strong>One thought — six checks.</strong> You do not need to prove it right or wrong. Just examine its source, reaction, consequences, and evidence.</span>
+      </p>
+      <p class="hint" style="margin-bottom:0">
+        <span class="lang-section lang-uk active" lang="uk">Це не тест і не діагностика. Тут немає балів і «правильної» відповіді.</span>
+        <span class="lang-section lang-en" lang="en">This is not a test or diagnosis. There are no scores and no “correct” answer.</span>
+      </p>
+      <div class="progress-shell" aria-hidden="true"><div class="progress-bar" id="explorer-progress"></div></div>
+      <div class="progress-meta"><span id="progress-label">Крок 1 з 6</span><span id="progress-name">Злови думку</span></div>
+    </div>
+
+    <form id="explorer-form" novalidate>
+      <section class="explorer-step active" data-step="1">
+        <h2><span class="lang-section lang-uk active">1. Злови думку</span><span class="lang-section lang-en">1. Catch the thought</span></h2>
+        <p class="lead"><span class="lang-section lang-uk active">Запиши одну конкретну думку так, як вона звучить у тебе в голові. Не покращуй її.</span><span class="lang-section lang-en">Write one specific thought exactly as it sounds in your head. Do not improve it yet.</span></p>
+        <div class="field">
+          <label for="thought"><span class="lang-section lang-uk active">Думка</span><span class="lang-section lang-en">Thought</span></label>
+          <textarea id="thought" name="thought" data-ph-uk="Наприклад: «Якщо я відмовлю — людина образиться»" data-ph-en="For example: “If I say no, the person will be offended”"></textarea>
+          <div class="validation" id="thought-error" aria-live="polite"></div>
+        </div>
+        <div class="logic-alert" id="absolute-alert"></div>
+        <div class="nav-actions"><span></span><button class="btn-explorer btn-primary" type="button" data-next><span class="lang-section lang-uk active">Далі</span><span class="lang-section lang-en">Next</span></button></div>
+      </section>
+
+      <section class="explorer-step" data-step="2">
+        <h2><span class="lang-section lang-uk active">2. Звідки вона могла взятися?</span><span class="lang-section lang-en">2. Where might it have come from?</span></h2>
+        <p class="lead"><span class="lang-section lang-uk active">Не обов’язково знаходити «першоджерело». Згадай найраніший або найвиразніший контекст, який реально приходить у голову.</span><span class="lang-section lang-en">You do not have to find the “original source.” Recall the earliest or clearest context that genuinely comes to mind.</span></p>
+        <fieldset class="field" style="border:0;padding:0">
+          <legend><span class="lang-section lang-uk active">Що тут схоже на правду?</span><span class="lang-section lang-en">What seems relevant?</span></legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="checkbox" name="sourceType" value="own"><span class="lang-section lang-uk active">Виросла з мого досвіду</span><span class="lang-section lang-en">Grew from my own experience</span></label>
+            <label class="choice"><input type="checkbox" name="sourceType" value="family"><span class="lang-section lang-uk active">Родина / близькі</span><span class="lang-section lang-en">Family / close people</span></label>
+            <label class="choice"><input type="checkbox" name="sourceType" value="authority"><span class="lang-section lang-uk active">Школа / авторитет / середовище</span><span class="lang-section lang-en">School / authority / environment</span></label>
+            <label class="choice"><input type="checkbox" name="sourceType" value="media"><span class="lang-section lang-uk active">Медіа / соцмережі / культура</span><span class="lang-section lang-en">Media / social networks / culture</span></label>
+            <label class="choice"><input type="checkbox" name="sourceType" value="unknown"><span class="lang-section lang-uk active">Не знаю</span><span class="lang-section lang-en">I do not know</span></label>
+            <label class="choice"><input type="checkbox" name="sourceType" value="other"><span class="lang-section lang-uk active">Інше</span><span class="lang-section lang-en">Other</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="sourceNote"><span class="lang-section lang-uk active">Що саме згадується?</span><span class="lang-section lang-en">What exactly do you remember?</span></label><textarea id="sourceNote" name="sourceNote" data-ph-uk="Людина, ситуація, фраза, період життя — або просто «не знаю»." data-ph-en="A person, situation, phrase, period of life — or simply “I don’t know.”"></textarea></div>
+        <div class="nav-actions"><button class="btn-explorer btn-secondary" type="button" data-prev><span class="lang-section lang-uk active">Назад</span><span class="lang-section lang-en">Back</span></button><button class="btn-explorer btn-primary" type="button" data-next><span class="lang-section lang-uk active">Далі</span><span class="lang-section lang-en">Next</span></button></div>
+      </section>
+
+      <section class="explorer-step" data-step="3">
+        <h2><span class="lang-section lang-uk active">3. Що відбувається в тілі?</span><span class="lang-section lang-en">3. What happens in the body?</span></h2>
+        <p class="lead"><span class="lang-section lang-uk active">Тілесна реакція — це інформація про твій стан, а не доказ того, що думка істинна, хибна, «твоя» чи «чужа».</span><span class="lang-section lang-en">A bodily reaction is information about your state, not proof that the thought is true, false, “yours,” or “someone else’s.”</span></p>
+        <fieldset class="field" style="border:0;padding:0">
+          <legend><span class="lang-section lang-uk active">Що помічаєш?</span><span class="lang-section lang-en">What do you notice?</span></legend>
+          <div class="choice-grid">
+            <label class="choice"><input type="checkbox" name="body" value="tension"><span class="lang-section lang-uk active">Напруга / стискання</span><span class="lang-section lang-en">Tension / tightness</span></label>
+            <label class="choice"><input type="checkbox" name="body" value="calm"><span class="lang-section lang-uk active">Спокій</span><span class="lang-section lang-en">Calm</span></label>
+            <label class="choice"><input type="checkbox" name="body" value="fear"><span class="lang-section lang-uk active">Страх / тривога</span><span class="lang-section lang-en">Fear / anxiety</span></label>
+            <label class="choice"><input type="checkbox" name="body" value="anger"><span class="lang-section lang-uk active">Злість / жар</span><span class="lang-section lang-en">Anger / heat</span></label>
+            <label class="choice"><input type="checkbox" name="body" value="relief"><span class="lang-section lang-uk active">Полегшення</span><span class="lang-section lang-en">Relief</span></label>
+            <label class="choice"><input type="checkbox" name="body" value="nothing"><span class="lang-section lang-uk active">Нічого виразного</span><span class="lang-section lang-en">Nothing distinct</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="bodyIntensity"><span class="lang-section lang-uk active">Сила реакції: <span id="bodyIntensityValue">5</span>/10</span><span class="lang-section lang-en">Reaction intensity: <span id="bodyIntensityValueEn">5</span>/10</span></label><div class="range-row"><span>0</span><input id="bodyIntensity" name="bodyIntensity" type="range" min="0" max="10" value="5"><span>10</span></div></div>
+        <div class="field"><label for="bodyNote"><span class="lang-section lang-uk active">Де і як це відчувається?</span><span class="lang-section lang-en">Where and how do you feel it?</span></label><textarea id="bodyNote" name="bodyNote" data-ph-uk="Наприклад: напруга в плечах, стискання в животі, тепло, рівне дихання..." data-ph-en="For example: tension in shoulders, tightness in the stomach, warmth, steady breathing..."></textarea></div>
+        <div class="nav-actions"><button class="btn-explorer btn-secondary" type="button" data-prev><span class="lang-section lang-uk active">Назад</span><span class="lang-section lang-en">Back</span></button><button class="btn-explorer btn-primary" type="button" data-next><span class="lang-section lang-uk active">Далі</span><span class="lang-section lang-en">Next</span></button></div>
+      </section>
+
+      <section class="explorer-step" data-step="4">
+        <h2><span class="lang-section lang-uk active">4. Що ця думка робить із твоїми діями?</span><span class="lang-section lang-en">4. What does this thought do to your actions?</span></h2>
+        <p class="lead"><span class="lang-section lang-uk active">Подивись не на те, «добра» вона чи «погана», а на її реальні наслідки.</span><span class="lang-section lang-en">Look not at whether it is “good” or “bad,” but at its actual consequences.</span></p>
+        <div class="field"><label for="impact"><span class="lang-section lang-uk active">Що ти робиш або не робиш через цю думку?</span><span class="lang-section lang-en">What do you do or avoid because of this thought?</span></label><textarea id="impact" name="impact"></textarea></div>
+        <div class="field"><label for="withoutThought"><span class="lang-section lang-uk active">Уяви, що на один день ти не вважаєш її фактом. Що могло б змінитися у твоїх діях?</span><span class="lang-section lang-en">Imagine that for one day you do not treat it as a fact. What might change in your actions?</span></label><textarea id="withoutThought" name="withoutThought"></textarea></div>
+        <div class="nav-actions"><button class="btn-explorer btn-secondary" type="button" data-prev><span class="lang-section lang-uk active">Назад</span><span class="lang-section lang-en">Back</span></button><button class="btn-explorer btn-primary" type="button" data-next><span class="lang-section lang-uk active">Далі</span><span class="lang-section lang-en">Next</span></button></div>
+      </section>
+
+      <section class="explorer-step" data-step="5">
+        <h2><span class="lang-section lang-uk active">5. Перевір реальністю</span><span class="lang-section lang-en">5. Check it against reality</span></h2>
+        <p class="lead"><span class="lang-section lang-uk active">Тепер не «відчувається чи ні», а що реально підтримує цю думку і що їй суперечить.</span><span class="lang-section lang-en">Now move beyond how it feels: what actually supports this thought, and what contradicts it?</span></p>
+        <div class="field"><label for="evidenceFor"><span class="lang-section lang-uk active">Факти або досвід ЗА</span><span class="lang-section lang-en">Facts or experience FOR it</span></label><textarea id="evidenceFor" name="evidenceFor" data-ph-uk="Конкретні випадки, а не загальні враження." data-ph-en="Specific cases, not general impressions."></textarea></div>
+        <div class="field"><label for="evidenceAgainst"><span class="lang-section lang-uk active">Факти, винятки або досвід ПРОТИ</span><span class="lang-section lang-en">Facts, exceptions, or experience AGAINST it</span></label><textarea id="evidenceAgainst" name="evidenceAgainst"></textarea></div>
+        <div class="field"><label for="unknowns"><span class="lang-section lang-uk active">Чого ти тут насправді не знаєш?</span><span class="lang-section lang-en">What do you actually not know here?</span></label><textarea id="unknowns" name="unknowns" data-ph-uk="Що лишається припущенням, прогнозом або чужими намірами?" data-ph-en="What remains an assumption, prediction, or guess about someone else's motives?"></textarea></div>
+        <div class="nav-actions"><button class="btn-explorer btn-secondary" type="button" data-prev><span class="lang-section lang-uk active">Назад</span><span class="lang-section lang-en">Back</span></button><button class="btn-explorer btn-primary" type="button" data-next><span class="lang-section lang-uk active">Далі</span><span class="lang-section lang-en">Next</span></button></div>
+      </section>
+
+      <section class="explorer-step" data-step="6">
+        <h2><span class="lang-section lang-uk active">6. Що ти думаєш тепер?</span><span class="lang-section lang-en">6. What do you think now?</span></h2>
+        <p class="lead"><span class="lang-section lang-uk active">Не обов’язково оголошувати думку «моєю» або «чужою». Вибери висновок, який зараз найточніше відповідає даним.</span><span class="lang-section lang-en">You do not have to declare the thought “mine” or “not mine.” Choose the conclusion that best fits the evidence right now.</span></p>
+        <fieldset class="field" style="border:0;padding:0">
+          <legend><span class="lang-section lang-uk active">Поточний висновок</span><span class="lang-section lang-en">Current conclusion</span></legend>
+          <div class="decision-row">
+            <label class="decision-card"><input type="radio" name="decision" value="keep"><span class="lang-section lang-uk active">Це моя робоча думка — поки вона витримує перевірку.</span><span class="lang-section lang-en">This is my working view — for now it holds up.</span></label>
+            <label class="decision-card"><input type="radio" name="decision" value="refine"><span class="lang-section lang-uk active">У ній є сенс, але її треба уточнити.</span><span class="lang-section lang-en">It contains something useful, but needs refinement.</span></label>
+            <label class="decision-card"><input type="radio" name="decision" value="borrowed"><span class="lang-section lang-uk active">Схоже, я прийняв її без достатньої перевірки.</span><span class="lang-section lang-en">It seems I accepted it without enough examination.</span></label>
+            <label class="decision-card"><input type="radio" name="decision" value="unknown"><span class="lang-section lang-uk active">Не знаю. Потрібно більше даних.</span><span class="lang-section lang-en">I do not know. I need more data.</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="reframed"><span class="lang-section lang-uk active">Як би ти сформулював цю думку точніше зараз?</span><span class="lang-section lang-en">How would you phrase this thought more precisely now?</span></label><textarea id="reframed" name="reframed" data-ph-uk="Можеш залишити початкову фразу, змінити її або написати: «поки не знаю»." data-ph-en="You can keep the original wording, change it, or write: “I don't know yet.”"></textarea></div>
+        <div class="validation" id="decision-error" aria-live="polite"></div>
+        <div class="nav-actions"><button class="btn-explorer btn-secondary" type="button" data-prev><span class="lang-section lang-uk active">Назад</span><span class="lang-section lang-en">Back</span></button><button class="btn-explorer btn-primary" type="submit"><span class="lang-section lang-uk active">Зібрати підсумок</span><span class="lang-section lang-en">Build summary</span></button></div>
+      </section>
+    </form>
+
+    <section class="summary" id="explorer-summary" aria-live="polite">
+      <h2><span class="lang-section lang-uk active">Твій розбір</span><span class="lang-section lang-en">Your exploration</span></h2>
+      <p class="lead"><span class="lang-section lang-uk active">Це не вердикт. Це зріз того, що ти побачив у цій думці зараз.</span><span class="lang-section lang-en">This is not a verdict. It is a snapshot of what you can see in this thought right now.</span></p>
+      <div id="summary-content"></div>
+      <div class="nav-actions">
+        <button class="btn-explorer btn-secondary" type="button" id="summary-edit"><span class="lang-section lang-uk active">Повернутися до відповідей</span><span class="lang-section lang-en">Return to answers</span></button>
+        <button class="btn-explorer btn-ghost" type="button" id="summary-copy"><span class="lang-section lang-uk active">Скопіювати підсумок</span><span class="lang-section lang-en">Copy summary</span></button>
+        <button class="btn-explorer btn-primary" type="button" id="summary-reset"><span class="lang-section lang-uk active">Інша думка</span><span class="lang-section lang-en">Explore another thought</span></button>
+      </div>
+      <div class="hint" id="copy-status" aria-live="polite"></div>
+    </section>
+  </div>
+</section>
+</main>
+<aside class="yaie-next-links" style="max-width:990px;margin:35px auto 50px;padding:22px;background:#172334;color:#e9eff6;border:1px solid #344459;border-radius:16px"><div class="yaie-i18n-next" data-en="Where to go next" data-uk="Що можна зробити далі">Що можна зробити далі</div><div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px"><a class="yaie-next-link" data-en="Other tools" data-uk="Інші інструменти" data-url="tools.html" href="tools.html" style="border:1px solid #66798f;background:#24354a;border-radius:9px;padding:11px 16px;color:#f5d9aa;text-decoration:none">Інші інструменти</a><a class="yaie-next-link" data-en="My perspective" data-uk="Мій погляд на світ" data-url="blog.html" href="blog.html" style="border:1px solid #66798f;background:#24354a;border-radius:9px;padding:11px 16px;color:#f5d9aa;text-decoration:none">Мій погляд на світ</a></div></aside><footer>
+<div class="container">
+<p>
+<span class="lang-section lang-uk active" lang="uk">© 2025 Я є. Усі права захищено.</span>
+<span class="lang-section lang-en" lang="en">© 2025 I Am. All rights reserved.</span>
+</p>
+<p class="footer-note">
+<span class="lang-section lang-uk active" lang="uk">Створено для дослідження мислення. Не шукай правильну відповідь — шукай точнішу картину.</span>
+<span class="lang-section lang-en" lang="en">Created for mental self-exploration. Do not look for the correct answer — look for a more accurate picture.</span>
+</p>
+</div>
+</footer>
+<script>
+    (function(){
+      const SELECTORS = {
+        langSections: '.lang-section',
+        navList: '#primary-nav',
+        menuToggle: '.menu-toggle',
+        langToggle: '.lang-toggle'
+      };
+
+      const TITLES = {
+        uk: 'Мисленне Дослідження — Визначення Власної Думки',
+        en: 'Mental Exploration — Interactive Thought Check'
+      };
+      const DESCS = {
+        uk: 'Інтерактивний інструмент для дослідження думки: походження, реакція, вплив, факти та власний висновок.',
+        en: 'An interactive tool for exploring a thought: its source, reaction, impact, evidence, and your own conclusion.'
+      };
+
+      const $ = (s,root=document)=>root.querySelector(s);
+      const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
+
+      function updateHead(lang){
+        document.title = TITLES[lang] || TITLES.uk;
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        const ogDesc  = document.querySelector('meta[property="og:description"]');
+        const desc    = document.querySelector('meta[name="description"]');
+        if(ogTitle) ogTitle.content = TITLES[lang] || TITLES.uk;
+        if(ogDesc)  ogDesc.content  = DESCS[lang]  || DESCS.uk;
+        if(desc)    desc.content    = DESCS[lang]  || DESCS.uk;
+      }
+
+      function applyLang(lang){
+        $$(SELECTORS.langSections).forEach(el=>el.classList.remove('active'));
+        $$(`.lang-${lang}`).forEach(el=>el.classList.add('active'));
+        document.documentElement.lang = lang;
+        const lt = $(SELECTORS.langToggle);
+        if(lt) lt.textContent = (lang === 'uk') ? 'UA / EN' : 'EN / UA';
+        updateHead(lang);
+        try{ localStorage.setItem('lang',lang); }catch(e){}
+      }
+
+      function initMenu(){
+        const toggle = $(SELECTORS.menuToggle);
+        const nav = $(SELECTORS.navList);
+        if(!toggle || !nav) return;
+
+        function openMenu(){
+          nav.classList.add('active');
+          toggle.setAttribute('aria-expanded','true');
+          toggle.textContent = '✕';
+          document.addEventListener('click', onDocClick, true);
+          document.addEventListener('keydown', onKeydown);
+        }
+        function closeMenu(){
+          nav.classList.remove('active');
+          toggle.setAttribute('aria-expanded','false');
+          toggle.textContent = '☰';
+          document.removeEventListener('click', onDocClick, true);
+          document.removeEventListener('keydown', onKeydown);
+        }
+        function onDocClick(e){
+          if(nav.contains(e.target) || toggle.contains(e.target)) return;
+          closeMenu();
+        }
+        function onKeydown(e){
+          if(e.key === 'Escape') closeMenu();
+        }
+        toggle.addEventListener('click', ()=>{
+          nav.classList.contains('active') ? closeMenu() : openMenu();
+        });
+
+        // highlight current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        nav.querySelectorAll('a').forEach(a=>{
+          if(a.getAttribute('href') === currentPage){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+          }
+        });
+      }
+
+      function initLang(){
+        let saved = 'uk';
+        try{ saved = localStorage.getItem('lang') || 'uk'; }catch(e){}
+        applyLang(saved);
+
+        const btn = $(SELECTORS.langToggle);
+        if(btn){
+          btn.addEventListener('click', ()=>{
+            const now = document.documentElement.lang || 'uk';
+            const next = (now === 'uk') ? 'en' : 'uk';
+            applyLang(next);
+          });
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', ()=>{
+        initMenu();
+        initLang();
+      });
+    })();
+  </script>
+
+<script>
+(function(){
+  const root=document.getElementById('mind-explorer');
+  if(!root || root.dataset.ready==='1') return;
+  root.dataset.ready='1';
+  const form=document.getElementById('explorer-form');
+  const steps=[...root.querySelectorAll('.explorer-step')];
+  const progress=document.getElementById('explorer-progress');
+  const progressLabel=document.getElementById('progress-label');
+  const progressName=document.getElementById('progress-name');
+  const summary=document.getElementById('explorer-summary');
+  const summaryContent=document.getElementById('summary-content');
+  const thought=document.getElementById('thought');
+  const absoluteAlert=document.getElementById('absolute-alert');
+  const intensity=document.getElementById('bodyIntensity');
+  const intensityUk=document.getElementById('bodyIntensityValue');
+  const intensityEn=document.getElementById('bodyIntensityValueEn');
+  let current=1;
+  const storageKey='mindExplorationInteractiveV2';
+
+  const labels={
+    uk:['Злови думку','Звідки вона могла взятися?','Що відбувається в тілі?','Вплив на дії','Перевір реальністю','Твій висновок'],
+    en:['Catch the thought','Where might it have come from?','What happens in the body?','Impact on actions','Check against reality','Your conclusion']
+  };
+  const sourceLabels={
+    uk:{own:'мій досвід',family:'родина / близькі',authority:'школа / авторитет / середовище',media:'медіа / соцмережі / культура',unknown:'не знаю',other:'інше'},
+    en:{own:'my own experience',family:'family / close people',authority:'school / authority / environment',media:'media / social networks / culture',unknown:'I do not know',other:'other'}
+  };
+  const bodyLabels={
+    uk:{tension:'напруга / стискання',calm:'спокій',fear:'страх / тривога',anger:'злість / жар',relief:'полегшення',nothing:'нічого виразного'},
+    en:{tension:'tension / tightness',calm:'calm',fear:'fear / anxiety',anger:'anger / heat',relief:'relief',nothing:'nothing distinct'}
+  };
+  const decisionLabels={
+    uk:{keep:'Це моя робоча думка — поки вона витримує перевірку.',refine:'У ній є сенс, але її треба уточнити.',borrowed:'Схоже, я прийняв її без достатньої перевірки.',unknown:'Не знаю. Потрібно більше даних.'},
+    en:{keep:'This is my working view — for now it holds up.',refine:'It contains something useful, but needs refinement.',borrowed:'It seems I accepted it without enough examination.',unknown:'I do not know. I need more data.'}
+  };
+  function lang(){return document.documentElement.lang==='en'?'en':'uk';}
+  function t(uk,en){return lang()==='en'?en:uk;}
+  function showStep(n){
+    current=Math.max(1,Math.min(6,n));
+    steps.forEach((el,i)=>el.classList.toggle('active',i===current-1));
+    summary.classList.remove('active');
+    form.style.display='block';
+    progress.style.width=(current/6*100)+'%';
+    progressLabel.textContent=t('Крок '+current+' з 6','Step '+current+' of 6');
+    progressName.textContent=labels[lang()][current-1];
+    updatePlaceholders();
+    const active=steps[current-1];
+    if(active) active.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function updatePlaceholders(){
+    root.querySelectorAll('[data-ph-uk]').forEach(el=>{el.placeholder=lang()==='en'?el.dataset.phEn:el.dataset.phUk;});
+    progressLabel.textContent=t('Крок '+current+' з 6','Step '+current+' of 6');
+    progressName.textContent=labels[lang()][current-1];
+    checkAbsolutes();
+  }
+  function checkAbsolutes(){
+    const value=(thought.value||'').toLowerCase();
+    const ukWords=['завжди','ніколи','всі ','усі ','ніхто','повинен','повинна','маю '];
+    const enWords=['always','never','everyone','nobody','must ','have to'];
+    const found=(lang()==='en'?enWords:ukWords).filter(w=>value.includes(w.trim()));
+    if(found.length){
+      absoluteAlert.textContent=t('У формулюванні є слова, які можуть робити думку абсолютною. Не виправляй її зараз — просто запам’ятай це для кроку 5.','The wording contains terms that may make the thought absolute. Do not fix it now — just keep it in mind for step 5.');
+      absoluteAlert.classList.add('show');
+    }else absoluteAlert.classList.remove('show');
+  }
+  function validateStep(){
+    if(current===1 && !thought.value.trim()){
+      document.getElementById('thought-error').textContent=t('Спочатку запиши думку.','Write the thought first.');
+      thought.focus(); return false;
+    }
+    document.getElementById('thought-error').textContent='';
+    return true;
+  }
+  function getChecked(name){return [...form.querySelectorAll('input[name="'+name+'"]:checked')].map(x=>x.value);}
+  function getValue(id){const el=document.getElementById(id);return el?el.value.trim():'';}
+  function collect(){
+    return {
+      thought:getValue('thought'),
+      sourceType:getChecked('sourceType'),sourceNote:getValue('sourceNote'),
+      body:getChecked('body'),bodyIntensity:intensity.value,bodyNote:getValue('bodyNote'),
+      impact:getValue('impact'),withoutThought:getValue('withoutThought'),
+      evidenceFor:getValue('evidenceFor'),evidenceAgainst:getValue('evidenceAgainst'),unknowns:getValue('unknowns'),
+      decision:(form.querySelector('input[name="decision"]:checked')||{}).value||'',reframed:getValue('reframed')
+    };
+  }
+  function save(){try{localStorage.setItem(storageKey,JSON.stringify(collect()));}catch(e){}}
+  function restore(){
+    let data=null;try{data=JSON.parse(localStorage.getItem(storageKey)||'null');}catch(e){}
+    if(!data)return;
+    ['thought','sourceNote','bodyNote','impact','withoutThought','evidenceFor','evidenceAgainst','unknowns','reframed'].forEach(id=>{if(data[id]!=null){const el=document.getElementById(id);if(el)el.value=data[id];}});
+    if(data.bodyIntensity!=null) intensity.value=data.bodyIntensity;
+    ['sourceType','body'].forEach(name=>(data[name]||[]).forEach(v=>{const el=form.querySelector('input[name="'+name+'"][value="'+v+'"]');if(el)el.checked=true;}));
+    if(data.decision){const el=form.querySelector('input[name="decision"][value="'+data.decision+'"]');if(el)el.checked=true;}
+    updateIntensity();checkAbsolutes();
+  }
+  function updateIntensity(){intensityUk.textContent=intensity.value;intensityEn.textContent=intensity.value;}
+  function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+  function listText(values,map){return values.length?values.map(v=>map[lang()][v]||v).join(', '):t('не вказано','not specified');}
+  function item(label,value){return '<div class="summary-item"><div class="summary-label">'+esc(label)+'</div><div class="summary-value">'+esc(value||t('не вказано','not specified'))+'</div></div>'; }
+  function buildSummary(){
+    const d=collect();
+    summaryContent.innerHTML=
+      item(t('Початкова думка','Original thought'),d.thought)+
+      item(t('Можливе походження','Possible source'),listText(d.sourceType,sourceLabels)+(d.sourceNote?' — '+d.sourceNote:''))+
+      item(t('Реакція тіла','Body reaction'),listText(d.body,bodyLabels)+'; '+t('сила','intensity')+' '+d.bodyIntensity+'/10'+(d.bodyNote?' — '+d.bodyNote:''))+
+      item(t('Вплив на дії','Impact on actions'),d.impact)+
+      item(t('Що могло б змінитися','What might change'),d.withoutThought)+
+      item(t('Факти ЗА','Evidence FOR'),d.evidenceFor)+
+      item(t('Факти / винятки ПРОТИ','Evidence / exceptions AGAINST'),d.evidenceAgainst)+
+      item(t('Що лишається невідомим','What remains unknown'),d.unknowns)+
+      item(t('Поточний висновок','Current conclusion'),decisionLabels[lang()][d.decision]||t('не вибрано','not selected'))+
+      item(t('Точніше формулювання зараз','More precise wording now'),d.reframed||d.thought);
+    form.style.display='none';summary.classList.add('active');summary.scrollIntoView({behavior:'smooth',block:'start'});save();
+  }
+  function plainSummary(){
+    const d=collect();
+    const lines=[
+      t('МИСЛЕННЕ ДОСЛІДЖЕННЯ','MENTAL EXPLORATION'),
+      '',t('Початкова думка: ','Original thought: ')+d.thought,
+      t('Можливе походження: ','Possible source: ')+listText(d.sourceType,sourceLabels)+(d.sourceNote?' — '+d.sourceNote:''),
+      t('Реакція тіла: ','Body reaction: ')+listText(d.body,bodyLabels)+'; '+d.bodyIntensity+'/10'+(d.bodyNote?' — '+d.bodyNote:''),
+      t('Вплив на дії: ','Impact on actions: ')+(d.impact||'—'),
+      t('Без цієї думки: ','Without treating it as fact: ')+(d.withoutThought||'—'),
+      t('Факти ЗА: ','Evidence FOR: ')+(d.evidenceFor||'—'),
+      t('Факти / винятки ПРОТИ: ','Evidence / exceptions AGAINST: ')+(d.evidenceAgainst||'—'),
+      t('Невідоме: ','Unknowns: ')+(d.unknowns||'—'),
+      t('Висновок: ','Conclusion: ')+(decisionLabels[lang()][d.decision]||'—'),
+      t('Точніше формулювання: ','More precise wording: ')+(d.reframed||d.thought)
+    ];return lines.join('\n');
+  }
+  async function copySummary(){
+    const status=document.getElementById('copy-status');
+    const text=plainSummary();
+    try{
+      if(navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(text);
+      else{const ta=document.createElement('textarea');ta.value=text;ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
+      status.textContent=t('Підсумок скопійовано.','Summary copied.');
+    }catch(e){status.textContent=t('Не вдалося скопіювати автоматично.','Could not copy automatically.');}
+  }
+  root.querySelectorAll('[data-next]').forEach(btn=>btn.addEventListener('click',()=>{if(validateStep()){save();showStep(current+1);}}));
+  root.querySelectorAll('[data-prev]').forEach(btn=>btn.addEventListener('click',()=>{save();showStep(current-1);}));
+  thought.addEventListener('input',()=>{checkAbsolutes();save();});
+  form.addEventListener('input',e=>{if(e.target!==thought)save();});
+  form.addEventListener('change',save);
+  intensity.addEventListener('input',()=>{updateIntensity();save();});
+  form.addEventListener('submit',e=>{e.preventDefault();const picked=form.querySelector('input[name="decision"]:checked');if(!picked){document.getElementById('decision-error').textContent=t('Вибери поточний висновок. Навіть «не знаю» — нормальна відповідь.','Choose a current conclusion. Even “I do not know” is a valid answer.');return;}document.getElementById('decision-error').textContent='';buildSummary();});
+  document.getElementById('summary-edit').addEventListener('click',()=>showStep(6));
+  document.getElementById('summary-copy').addEventListener('click',copySummary);
+  document.getElementById('summary-reset').addEventListener('click',()=>{if(!confirm(t('Очистити відповіді й почати з іншої думки?','Clear the answers and explore another thought?')))return;form.reset();try{localStorage.removeItem(storageKey);}catch(e){}intensity.value=5;updateIntensity();summary.classList.remove('active');form.style.display='block';document.getElementById('copy-status').textContent='';showStep(1);});
+  const langObserver=new MutationObserver(updatePlaceholders);langObserver.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  restore();updateIntensity();updatePlaceholders();
+})();
+</script>
+<script defer="" src="assets/site.js"></script><script>document.addEventListener('DOMContentLoaded',()=>{const box=document.querySelector('.yaie-next-links');if(!box)return;let l=document.documentElement.lang==='en'?'en':'uk';box.querySelectorAll('[data-uk]').forEach(e=>e.textContent=e.dataset[l]);box.querySelectorAll('[data-url]').forEach(e=>{let u=new URL(e.dataset.url,location.href);u.searchParams.set('lang',l);e.href=u.pathname+u.search});});</script></body>
+</html>

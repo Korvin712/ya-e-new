@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Мій погляд на світ | Я є</title>
+<link href="https://ya-e.in.ua/blog.html" rel="canonical"/>
+<meta content="Думки, тексти і підказки для тих, хто вже не може жити 'як раніше'. Архетип пульсує, тіло говорить, а розум питає: 'І що тепер?'" name="description"/>
+<meta content="самопізнання, архетипи, психологія, внутрішній ріст, як жити далі, self-discovery, archetypes, psychology, inner growth, how to live on" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<!-- Open Graph -->
+<meta content="Мій погляд на світ | Я є" property="og:title"/>
+<meta content="Думки, тексти і підказки для тих, хто вже не може жити 'як раніше'. Архетип пульсує, тіло говорить, а розум питає: 'І що тепер?'" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="images/ya-e-og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="uk_UA" property="og:locale"/>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora&amp;display=swap" rel="stylesheet">
+<style>
+    :root{
+      --primary-color:#4b0082; --secondary-color:#800080;
+      --button-bg:#4c1d95; --button-hover:#5b21b6;
+      --gray-50:#f9fafb; --white:#fff;
+      --lang-toggle-bg:#fff; --lang-toggle-text:#000; --lang-toggle-border:#f00;
+      --darkslategray:#2F4F4F;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    body{font-family:'Lora',serif;margin:0;padding:0;line-height:1.6;background:var(--white);color:#111;display:flex;flex-direction:column;min-height:100vh}
+
+    /* NAV */
+    nav{background:linear-gradient(to right,var(--primary-color),var(--secondary-color));color:var(--white);padding:1rem;position:sticky;top:0;z-index:10}
+    nav .container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .logo-link{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--white);font-weight:bold;font-size:1.5rem}
+    .logo-img{width:32px;height:32px}
+    .menu-toggle{display:none;font-size:1.5rem;cursor:pointer;background:none;border:none;color:var(--white)}
+    nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+    nav a{color:var(--white);text-decoration:none;padding:.5rem;display:block;font-size:.9375rem;transition:color .2s,transform .2s}
+    nav a:hover,nav a:focus{color:#FFD700;transform:scale(1.05);text-decoration:underline}
+    nav a.active{color:#FFD700;text-decoration:underline}
+    .lang-toggle{cursor:pointer;font-weight:bold;color:var(--lang-toggle-text);background:var(--lang-toggle-bg);border:2px solid var(--lang-toggle-border);padding:.5rem 1rem;border-radius:9999px;text-decoration:none;font-size:1.125rem;transition:background-color .3s,transform .2s}
+    .lang-toggle:hover,.lang-toggle:focus{background:#e0e0e0;transform:scale(1.05)}
+
+    /* UTILS */
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+    .text-center{text-align:center}.text-white{color:var(--white)}
+    .py-20{padding-top:5rem;padding-bottom:5rem}
+    .py-16{padding-top:4rem;padding-bottom:4rem}
+    .mb-0{margin-bottom:0}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}
+    .text-4xl{font-size:2.25rem}.md\:text-5xl{font-size:3rem}
+    .text-lg{font-size:1.125rem}.text-2xl{font-size:1.5rem}.text-sm{font-size:.875rem}
+    .font-bold{font-weight:bold}.font-lora{font-family:'Lora',serif}
+    .bg-gray-50{background-color:var(--gray-50)}
+    .bg-gradient-to-r{background:linear-gradient(to right,var(--primary-color),var(--secondary-color))}
+    .inline-block{display:inline-block}.rounded-full{border-radius:9999px}
+    .px-8{padding-left:2rem;padding-right:2rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}
+    .bg-indigo-600{background:var(--button-bg)} .bg-indigo-600:hover{background:var(--button-hover)}
+    .max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.mx-auto{margin-left:auto;margin-right:auto}
+    .animate-fade-in{animation:fadeIn 1s ease-in}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+    /* HERO */
+    .subtitle{font-size:1.25rem;font-style:italic;margin-bottom:2rem}
+
+    /* CONTROLS */
+    .controls{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;margin-bottom:1rem}
+    .control-group{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+    .control-group label{font-size:.9375rem;color:#333}
+    .control-input{padding:.55rem .75rem;border:1px solid #ccc;border-radius:.75rem;font-family:inherit;font-size:1rem;min-width:220px}
+    .select{min-width:260px}
+    .muted{color:#666;font-size:.9rem}
+
+    /* ACCORDION */
+    .accordion-wrap{max-width:48rem;margin:0 auto}
+    .accordion-item{border-bottom:1px solid #ddd;margin-bottom:1rem;background:#fff;border-radius:.5rem;overflow:hidden}
+    .accordion-header{padding:1rem;background:#f1f1f1;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+    .accordion-header:hover{background:#e7e7e7}
+    .accordion-header h3{margin:0;font-size:1.25rem;color:var(--darkslategray)}
+    .accordion-icon{font-size:1.2rem;line-height:1}
+    .accordion-content{display:none;padding:1rem;background:#fff}
+    .accordion-content.open{display:block}
+
+    /* FOOTER */
+    footer{background:var(--primary-color);color:var(--white);padding:1.5rem 1rem;text-align:center;margin-top:auto}
+    footer a{color:#FFD700;text-decoration:underline}
+
+    /* RESPONSIVE */
+    @media (max-width:768px){
+      .menu-toggle{display:block}
+      nav .container{flex-direction:column;align-items:flex-start;padding:.5rem}
+      nav ul{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));padding:.5rem;box-shadow:0 4px 8px rgba(0,0,0,.2);animation:slideIn .3s ease}
+      nav ul.active{display:flex}
+      .logo-link{font-size:1.25rem;margin-bottom:.5rem}
+      .logo-img{width:28px;height:28px}
+      .lang-toggle{font-size:1rem;padding:.4rem .8rem;margin-top:.5rem;align-self:flex-end}
+      nav a{font-size:.875rem;padding:.25rem}
+      .py-20,.py-16{padding-top:2rem;padding-bottom:2rem}
+      .text-4xl{font-size:2rem}.md\:text-5xl{font-size:2.5rem}
+      .subtitle{font-size:1rem}
+      .px-8{padding-left:1rem;padding-right:1rem}.py-3{padding-top:.5rem;padding-bottom:.5rem}
+      .controls{gap:.5rem}
+      .control-input{min-width:180px}
+      .select{min-width:200px}
+    }
+    @media (max-width:480px){
+      nav a{font-size:.75rem}
+      .logo-link{font-size:1rem}.logo-img{width:24px;height:24px}
+      .lang-toggle{font-size:.875rem;padding:.3rem .6rem}
+      .text-4xl{font-size:1.5rem}.md\:text-5xl{font-size:2rem}.subtitle{font-size:.875rem}
+      .controls{flex-direction:column;align-items:stretch}
+      .control-group{width:100%;justify-content:space-between}
+      .control-input{width:100%}
+      .select{width:100%}
+    }
+    @media (max-width:320px){
+      nav a{font-size:.625rem}
+      .logo-link{font-size:.875rem}.logo-img{width:20px;height:20px}
+      .lang-toggle{font-size:.75rem;padding:.2rem .4rem}
+      .text-4xl{font-size:1.2rem}
+    }
+    @keyframes slideIn{from{transform:translateY(-20px);opacity:0}to{transform:translateY(0);opacity:1}}
+  
+    /* Wide-menu fallback: collapse long navigation on laptop widths */
+    @media (min-width:769px) and (max-width:1900px){
+      .menu-toggle{display:inline-block!important}
+      #primary-nav{display:none!important;position:absolute!important;top:100%!important;left:0!important;width:100%!important;background:linear-gradient(to right,#4b0082,#800080)!important;padding:1rem!important;box-shadow:0 4px 8px rgba(0,0,0,.2)!important;flex-direction:column!important;gap:.5rem!important;z-index:50!important;max-height:calc(100vh - 88px);overflow-y:auto}
+      #primary-nav.active{display:flex!important}
+    }
+    @media (min-width:1901px){
+      .nav-wrap,nav .container{max-width:1800px!important}
+    }
+</style>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/><link href="assets/site.css" rel="stylesheet"/><script>try{var ul=new URLSearchParams(location.search).get("lang");if(ul==="uk"||ul==="en")localStorage.setItem("lang",ul)}catch(e){}</script></link><link href="assets/theme-v2.css" rel="stylesheet"/><style>#yaie-topics .yaie-topic{background:#23354a!important;border:1px solid #65768a!important;color:#f6e0b7!important;border-radius:999px!important;padding:9px 15px!important;font-weight:650!important;cursor:pointer}#yaie-topics .yaie-topic:hover{background:#3b4d62!important}body.legacy-page #yaie-topics p{margin-top:5px}body.legacy-page #posts .accordion-item{margin:0 0 12px!important}body.legacy-page #posts .accordion-header{padding:20px 24px!important}body.legacy-page #posts .accordion-content{max-width:900px}</style></head>
+<body class="legacy-page">
+<!-- NAV -->
+<nav role="navigation">
+<div class="container">
+<a aria-label="Перейти на головну сторінку / Go to homepage" class="logo-link" href="index.html">
+<img alt="Логотип Я є / I Am logo" class="logo-img" src="images/favicon-v2.png"/>
+<span class="logo-text">
+<span class="lang-uk">Я є</span>
+<span class="lang-en" hidden="">I Am</span>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Переключити меню навігації / Toggle navigation menu" class="menu-toggle">☰</button>
+<a aria-label="Переключити мову / Toggle language" class="lang-toggle" href="#">UA / EN</a>
+<ul id="primary-nav">
+<li><a href="index.html"><span class="lang-uk">Головна</span><span class="lang-en" hidden="">Home</span></a></li>
+<li><a href="archetypes.html"><span class="lang-uk">Про архетипи</span><span class="lang-en" hidden="">About Archetypes</span></a></li>
+<li><a href="about.html"><span class="lang-uk">Про мене</span><span class="lang-en" hidden="">About Me</span></a></li>
+<li><a href="tools.html"><span class="lang-uk">Інструменти</span><span class="lang-en" hidden="">Tools</span></a></li>
+<li><a href="archetype-test.html"><span class="lang-uk">Тест архетипів</span><span class="lang-en" hidden="">Archetype Test</span></a></li>
+<li><a href="unravel-situation.html"><span class="lang-uk">Розплутувач ситуації</span><span class="lang-en" hidden="">Situation Unraveler</span></a></li>
+<li><a href="map-awareness-test-v2.html"><span class="lang-uk">Мапа усвідомлення — Тест V2</span><span class="lang-en" hidden="">Map of Awareness — Test V2</span></a></li>
+<li><a href="mind-exploration.html"><span class="lang-uk">Мисленне Дослідження</span><span class="lang-en" hidden="">Mental Exploration</span></a></li>
+<li><a href="unravel-anxiety.html"><span class="lang-uk">Розплутування Тривоги</span><span class="lang-en" hidden="">Anxiety Knot Unraveler</span></a></li>
+<li><a href="blog.html"><span class="lang-uk">Як жити далі?</span><span class="lang-en" hidden="">How to Live On?</span></a></li>
+<li><a href="humor.html"><span class="lang-uk">Гумор</span><span class="lang-en" hidden="">Humor</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Прайс</span><span class="lang-en" hidden="">Pricing</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Контакти</span><span class="lang-en" hidden="">Contact</span></a></li>
+</ul>
+</div>
+</nav>
+<!-- HERO -->
+<section class="py-20 text-white text-center animate-fade-in bg-gradient-to-r">
+<div class="container mx-auto">
+<h2 class="text-4xl md:text-5xl font-bold font-lora mb-4">
+<span class="lang-uk">Мій погляд на світ</span>
+<span class="lang-en" hidden="">My Perspective</span>
+</h2>
+<p class="text-lg max-w-2xl mx-auto mb-6 subtitle">
+<span class="lang-uk">Тут — думки, тексти і підказки для тих, хто вже не може жити "як раніше". Архетип пульсує, тіло говорить, а розум питає: "І що тепер?"</span>
+<span class="lang-en" hidden="">Here are thoughts, texts, and tips for those who can no longer live "as before." The archetype pulses, the body speaks, and the mind asks: "What now?"</span>
+</p>
+</div>
+</section>
+<!-- CONTROLS -->
+<section class="bg-gray-50">
+<div class="container mx-auto max-w-3xl">
+<div id="yaie-topics" style="max-width:900px;margin:16px auto 26px;padding:22px;background:#172334;border:1px solid #344459;border-radius:16px;color:#f5f4ef;"><div class="lang-uk"><strong>З чого почати читання?</strong><p style="color:#bac7d6;margin:8px 0 13px">Обери тему або скористайся пошуком серед 85 статей.</p></div><div class="lang-en" hidden=""><strong>Where to start reading?</strong><p style="color:#bac7d6;margin:8px 0 13px">Choose a topic or search across 85 articles.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="yaie-topic" data-en="archetype" data-uk="архетип" type="button">Архетипи / Archetypes</button><button class="yaie-topic" data-en="thought" data-uk="думк" type="button">Думки / Thoughts</button><button class="yaie-topic" data-en="fear" data-uk="страх" type="button">Страх / Fear</button><button class="yaie-topic" data-en="human" data-uk="людин" type="button">Людина / Being human</button><button class="yaie-topic" data-en="" data-uk="" type="button">Усі статті / All articles</button></div></div><div class="controls">
+<div class="control-group">
+<label for="search">
+<span class="lang-uk">Пошук:</span>
+<span class="lang-en" hidden="">Search:</span>
+</label>
+<input aria-label="Поле пошуку" class="control-input" id="search" placeholder="Пошук у заголовках і тексті…" type="search"/>
+</div>
+<div class="control-group">
+<label for="sort">
+<span class="lang-uk">Сортування:</span>
+<span class="lang-en" hidden="">Sort by:</span>
+</label>
+<select aria-label="Сортування" class="control-input select" id="sort">
+<option value="dateDesc">📅 Дата — Нові → Старі</option>
+<option value="dateAsc">📅 Дата — Старі → Нові</option>
+<option value="titleAZ">🔤 Заголовок — A → Z</option>
+<option value="titleZA">🔤 Заголовок — Z → A</option>
+</select>
+</div>
+</div>
+<p class="muted mb-6" id="resultMeta"></p>
+</div>
+</section>
+<!-- POSTS + BUTTONS -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto max-w-3xl">
+<div class="accordion-wrap" id="posts"></div>
+<div class="buttons text-center mt-6">
+<a class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full" href="tools.html">
+<span class="lang-uk">Почати шлях</span>
+<span class="lang-en" hidden="">Start the Journey</span>
+</a>
+<a class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full mt-4" href="contact.html">
+<span class="lang-uk">Задати питання</span>
+<span class="lang-en" hidden="">Ask a Question</span>
+</a>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<p>
+<span class="lang-uk">© 2025 Я є. Усі права захищено.</span>
+<span class="lang-en" hidden="">© 2025 I Am. All rights reserved.</span>
+</p>
+</footer>
+<script>
+    // ---------- State ----------
+    let postsData = [];
+    let state = { lang: 'uk', query: '', sort: 'dateDesc' };
+
+    // ---------- i18n ----------
+    const SORT_LABELS = {
+      uk: {
+        dateDesc: '📅 Дата — Нові → Старі',
+        dateAsc:  '📅 Дата — Старі → Нові',
+        titleAZ:  '🔤 Заголовок — A → Z',
+        titleZA:  '🔤 Заголовок — Z → A',
+      },
+      en: {
+        dateDesc: '📅 Date — New → Old',
+        dateAsc:  '📅 Date — Old → New',
+        titleAZ:  '🔤 Title — A → Z',
+        titleZA:  '🔤 Title — Z → A',
+      }
+    };
+
+    const PLACEHOLDER = {
+      uk: 'Пошук у заголовках і тексті…',
+      en: 'Search in titles and content…'
+    };
+
+    // ---------- Language toggle (просте й надійне) ----------
+    function setLang(lang){
+      state.lang = lang;
+      document.documentElement.lang = lang;
+      localStorage.setItem('lang', lang);
+
+      // переключаємо всі .lang-uk / .lang-en через hidden
+      document.querySelectorAll('.lang-uk').forEach(el => el.hidden = (lang !== 'uk'));
+      document.querySelectorAll('.lang-en').forEach(el => el.hidden = (lang !== 'en'));
+
+      document.querySelector('.lang-toggle').textContent = (lang==='uk') ? 'UA / EN' : 'EN / UA';
+
+      // Title + meta
+      if(lang==='uk'){
+        document.title = 'Мій погляд на світ | Я є';
+        document.querySelector('meta[property="og:title"]').content = 'Мій погляд на світ | Я є';
+        document.querySelector('meta[property="og:description"]').content =
+          'Думки, тексти і підказки для тих, хто вже не може жити "як раніше". Архетип пульсує, тіло говорить, а розум питає: "І що тепер?"';
+        document.querySelector('meta[name="description"]').content =
+          'Думки, тексти і підказки для тих, хто вже не може жити "як раніше". Архетип пульсує, тіло говорить, а розум питає: "І що тепер?"';
+      }else{
+        document.title = 'How to Live with All This? | I Am';
+        document.querySelector('meta[property="og:title"]').content = 'How to Live with All This? | I Am';
+        document.querySelector('meta[property="og:description"]').content =
+          'Here are thoughts, texts, and tips for those who can no longer live "as before." The archetype pulses, the body speaks, and the mind asks: "What now?"';
+        document.querySelector('meta[name="description"]').content =
+          'Here are thoughts, texts, and tips for those who can no longer live "as before." The archetype pulses, the body speaks, and the mind asks: "What now?"';
+      }
+
+      // controls
+      updateSortLabels(lang);
+      const search = document.getElementById('search');
+      if (search) search.placeholder = PLACEHOLDER[lang];
+
+      updateResultMeta();
+    }
+
+    function toggleLang(){
+      setLang(state.lang === 'uk' ? 'en' : 'uk');
+      renderPosts(filteredAndSorted(), state.lang);
+    }
+
+    function updateSortLabels(lang){
+      const sel = document.getElementById('sort');
+      if(!sel) return;
+      Array.from(sel.options).forEach(opt=>{
+        const v = opt.value;
+        if (SORT_LABELS[lang] && SORT_LABELS[lang][v]){
+          opt.textContent = SORT_LABELS[lang][v];
+        }
+      });
+    }
+
+    // ---------- Date parsing: expects DD-MM-YYYY ----------
+    function parseDateSafe(d) {
+      const t = (d || '').trim();
+      if (!t) return null;
+
+      const parts = t.split('-');
+      if (parts.length !== 3) return null;
+
+      const day = Number(parts[0]);
+      const month = Number(parts[1]);
+      const year = Number(parts[2]);
+
+      if (!Number.isInteger(day) || !Number.isInteger(month) || !Number.isInteger(year)) return null;
+
+      const date = new Date(year, month - 1, day);
+
+      // перевірка, що дата не «перекотилась»
+      if (
+        date.getFullYear() !== year ||
+        date.getMonth() !== month - 1 ||
+        date.getDate() !== day
+      ) return null;
+
+      return date;
+    }
+
+    // ---------- Title normalization for sorting ----------
+    function normalizeTitleForSort(s){
+      return (s || '')
+        .replace(/^[\s«»"“”‘’‚‛]+/g, '') // прибрати лапки/пробіли на початку
+        .trim()
+        .toLowerCase();
+    }
+
+    function pickTitleForCurrentLang(p){
+      // В uk режимі — uk заголовок, інакше en. Якщо нема — fallback.
+      return (state.lang === 'en')
+        ? (p.title_en || p.title_uk || '')
+        : (p.title_uk || p.title_en || '');
+    }
+
+    // ---------- Accordion ----------
+    function bindAccordion(container){
+      const headers = container.querySelectorAll('.accordion-header');
+      headers.forEach(header=>{
+        header.addEventListener('click', ()=>handleAccordion(header, container));
+        header.addEventListener('keydown', (e)=>{
+          if(e.key==='Enter' || e.key===' '){ e.preventDefault(); header.click(); }
+        });
+      });
+    }
+
+    function handleAccordion(header, container){
+      const content = header.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+
+      if(isOpen){
+        content.classList.remove('open');
+        content.setAttribute('aria-hidden','true');
+        header.setAttribute('aria-expanded','false');
+        const ic = header.querySelector('.accordion-icon'); if(ic) ic.textContent = '+';
+        return;
+      }
+
+      container.querySelectorAll('.accordion-content.open').forEach(c=>{
+        c.classList.remove('open');
+        c.setAttribute('aria-hidden','true');
+        const h = c.previousElementSibling;
+        if(h){
+          h.setAttribute('aria-expanded','false');
+          const ic = h.querySelector('.accordion-icon'); if(ic) ic.textContent = '+';
+        }
+      });
+
+      content.classList.add('open');
+      content.setAttribute('aria-hidden','false');
+      header.setAttribute('aria-expanded','true');
+      const icon = header.querySelector('.accordion-icon'); if(icon) icon.textContent = '−';
+    }
+
+    // ---------- Render ----------
+    function renderPosts(posts, lang){
+      const wrap = document.getElementById('posts');
+      wrap.innerHTML = '';
+
+      if(!posts.length){
+        const empty = document.createElement('p');
+        empty.className = 'muted';
+        empty.textContent = (lang==='uk')
+          ? 'Нічого не знайдено. Спробуйте змінити запит або сортування.'
+          : 'No results. Try adjusting your query or sorting.';
+        wrap.appendChild(empty);
+        return;
+      }
+
+      posts.forEach(post=>{
+        const item = document.createElement('div');
+        item.className = 'accordion-item';
+
+        const titleUk = post.title_uk || 'Без заголовку';
+        const titleEn = post.title_en || 'No title';
+
+        item.innerHTML = `
+          <div class="accordion-header" role="button" tabindex="0" aria-expanded="false">
+            <h3 class="font-lora">
+              <span class="lang-uk">${escapeHtml(titleUk)}</span>
+              <span class="lang-en" hidden>${escapeHtml(titleEn)}</span>
+            </h3>
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-content" aria-hidden="true">
+            <p class="text-lg mb-4"><em>
+              <span class="lang-uk">Дата: ${escapeHtml(post.date || 'Немає дати')}</span>
+              <span class="lang-en" hidden>Date: ${escapeHtml(post.date || 'No date')}</span>
+            </em></p>
+            <div class="lang-uk">${post.content_uk || ''}</div>
+            <div class="lang-en" hidden>${post.content_en || ''}</div>
+          </div>
+        `;
+        wrap.appendChild(item);
+      });
+
+      // застосувати hidden після рендеру
+      document.querySelectorAll('.lang-uk').forEach(el => el.hidden = (state.lang !== 'uk'));
+      document.querySelectorAll('.lang-en').forEach(el => el.hidden = (state.lang !== 'en'));
+
+      bindAccordion(wrap);
+    }
+
+    function escapeHtml(s){
+      return String(s ?? '')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'","&#39;");
+    }
+
+    // ---------- Filtering, sorting ----------
+    function filteredAndSorted(){
+      const q = state.query.trim().toLowerCase();
+      let list = postsData.slice();
+
+      if(q){
+        list = list.filter(p=>{
+          const t1 = (p.title_uk||'').toLowerCase();
+          const t2 = (p.title_en||'').toLowerCase();
+          const c1 = (p.content_uk||'').toLowerCase();
+          const c2 = (p.content_en||'').toLowerCase();
+          return t1.includes(q) || t2.includes(q) || c1.includes(q) || c2.includes(q);
+        });
+      }
+
+      switch(state.sort){
+        case 'dateAsc':
+          list.sort((a,b)=>{
+            const da = parseDateSafe(a.date); const db = parseDateSafe(b.date);
+            if(da && db) return da - db;
+            if(da && !db) return 1;      // без дати наприкінці
+            if(!da && db) return -1;
+            return (a.id||0) - (b.id||0);
+          });
+          break;
+
+        case 'titleAZ':
+          list.sort((a,b)=>{
+            const A = normalizeTitleForSort(pickTitleForCurrentLang(a));
+            const B = normalizeTitleForSort(pickTitleForCurrentLang(b));
+            const loc = (state.lang === 'en') ? 'en' : 'uk';
+            return A.localeCompare(B, loc, { sensitivity: 'base' });
+          });
+          break;
+
+        case 'titleZA':
+          list.sort((a,b)=>{
+            const A = normalizeTitleForSort(pickTitleForCurrentLang(a));
+            const B = normalizeTitleForSort(pickTitleForCurrentLang(b));
+            const loc = (state.lang === 'en') ? 'en' : 'uk';
+            return B.localeCompare(A, loc, { sensitivity: 'base' });
+          });
+          break;
+
+        case 'dateDesc':
+        default:
+          list.sort((a,b)=>{
+            const da = parseDateSafe(a.date); const db = parseDateSafe(b.date);
+            if(da && db) return db - da;
+            if(da && !db) return -1;     // без дати в кінці
+            if(!da && db) return 1;
+            return (b.id||0) - (a.id||0);
+          });
+      }
+
+      return list;
+    }
+
+    function updateResultMeta(){
+      const el = document.getElementById('resultMeta');
+      const n = filteredAndSorted().length;
+      el.textContent = (state.lang==='uk')
+        ? `Знайдено записів: ${n}`
+        : `Posts found: ${n}`;
+    }
+
+    // debounce for search
+    function debounce(fn, ms){
+      let t;
+      return (...args)=>{ clearTimeout(t); t = setTimeout(()=>fn(...args), ms); };
+    }
+
+    // ---------- Boot ----------
+    document.addEventListener('DOMContentLoaded', ()=>{
+      // language
+      const savedLang = localStorage.getItem('lang') || 'uk';
+      setLang(savedLang);
+
+      // menu
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navUl = document.querySelector('nav ul');
+      if(menuToggle && navUl){
+        menuToggle.addEventListener('click', ()=>{
+          const isExpanded = navUl.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', isExpanded);
+          menuToggle.textContent = isExpanded ? '✕' : '☰';
+        });
+        menuToggle.addEventListener('keydown', (e)=>{
+          if(e.key==='Enter' || e.key===' '){ e.preventDefault(); menuToggle.click(); }
+        });
+        navUl.querySelectorAll('a').forEach(a=>a.setAttribute('tabindex','0'));
+      }
+
+      // active link
+      const currentPage = (window.location.pathname.split('/').pop() || 'index.html');
+      navUl.querySelectorAll('a').forEach(link=>{
+        if(link.getAttribute('href')===currentPage){ link.classList.add('active'); }
+      });
+
+      // language toggle
+      document.querySelector('.lang-toggle').addEventListener('click', (e)=>{ e.preventDefault(); toggleLang(); });
+
+      // controls events
+      const search = document.getElementById('search');
+      const sortSel = document.getElementById('sort');
+
+      if (search){
+        search.placeholder = PLACEHOLDER[state.lang];
+        search.addEventListener('input', debounce((e)=>{
+          state.query = e.target.value || '';
+          updateResultMeta();
+          renderPosts(filteredAndSorted(), state.lang);
+        }, 200));
+      }
+
+      if (sortSel){
+        updateSortLabels(state.lang);
+        sortSel.value = state.sort;
+        sortSel.addEventListener('change', (e)=>{
+          state.sort = e.target.value;
+          updateResultMeta();
+          renderPosts(filteredAndSorted(), state.lang);
+        });
+      }
+
+      // load posts
+      fetch('./posts.json',{cache:'no-store'})
+        .then(r=>{
+          if(!r.ok) throw new Error(`Помилка завантаження JSON: ${r.status} ${r.statusText}`);
+          return r.json();
+        })
+        .then(data=>{
+          if(!data.posts) throw new Error('Неправильна структура JSON: ключ "posts" відсутній');
+          postsData = data.posts;
+          updateResultMeta();
+          renderPosts(filteredAndSorted(), state.lang);
+        })
+        .catch(err=>{
+          console.error(err);
+          alert(`Не вдалося завантажити пости: ${err.message}. Перевірте, чи доступний файл posts.json.`);
+        });
+    });
+  </script>
+<script defer="" src="assets/site.js"></script><script>document.addEventListener('DOMContentLoaded',()=>{let box=document.getElementById('yaie-topics');if(!box)return;box.querySelectorAll('.yaie-topic').forEach(b=>b.addEventListener('click',()=>{const lang=document.documentElement.lang==='en'?'en':'uk';const input=document.getElementById('search');if(!input)return;input.value=b.dataset[lang];input.dispatchEvent(new Event('input',{bubbles:true}));input.scrollIntoView({behavior:'smooth',block:'center'});}));});</script></body>
+</html>

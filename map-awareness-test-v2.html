@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Мапа усвідомлення — Тест (V2, покроковий) | Я є</title>
+<link href="https://ya-e.in.ua/thinking-map-stepper.html" rel="canonical"/>
+<meta content="42 короткі питання про звичні реакції та вибори. Відповідай так, як буває насправді, а не як «правильно»." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="самопізнання, архетипи, психологія, внутрішній ріст, self-discovery, archetypes, psychology, personal growth" name="keywords"/>
+<!-- Open Graph -->
+<meta content="Мапа усвідомлення — Тест (V2, покроковий) | Я є" property="og:title"/>
+<meta content="42 короткі питання про звичні реакції та вибори. Відповідай так, як буває насправді, а не як «правильно»." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="images/ya-e-og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="uk_UA" property="og:locale"/>
+<link href="/map-awareness-test-v2.html" rel="canonical"/>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --primary: #4b0082;
+      --secondary: #800080;
+      --button-bg: #4c1d95;
+      --button-hover: #5b21b6;
+      --gray-50: #f9fafb;
+      --white: #ffffff;
+      --accent: #ffd700;
+
+      --ink:#111;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --panel:#f8fafc;
+      --btn:#4c1d95;
+      --btn2:#5b21b6;
+      --ok:#10b981;
+      --warn:#f59e0b;
+      --err:#ef4444;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      color: var(--ink);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Skip-link */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background:#000;
+      color:#fff;
+      padding:.5rem .75rem;
+      border-radius:6px;
+      z-index: 1000;
+    }
+
+    /* Header / nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: var(--white);
+    }
+    .nav-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      gap: 1rem;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .logo img { width: 32px; height: 32px; }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    #primary-nav {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    #primary-nav a {
+      color: var(--white);
+      text-decoration: none;
+      padding: .5rem;
+      display: block;
+      font-size: .95rem;
+      transition: color .2s ease, transform .2s ease;
+    }
+    #primary-nav a:hover,
+    #primary-nav a:focus {
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+    #primary-nav a.active {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .lang-toggle {
+      background:#fff;
+      color:#000;
+      border:2px solid #f00;
+      border-radius:9999px;
+      padding:.5rem 1rem;
+      font-weight:700;
+      cursor:pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .lang-toggle:hover,
+    .lang-toggle:focus {
+      background:#e0e0e0;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: inline-block; }
+      .nav-wrap { flex-wrap: wrap; }
+      #primary-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,.2);
+        flex-direction: column;
+        gap: .5rem;
+      }
+      #primary-nav.active { display: flex; }
+    }
+
+    /* Utilities */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .text-center { text-align: center; }
+    .py-20 { padding: 5rem 0; }
+    .py-16 { padding: 4rem 0; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .font-bold { font-weight: 700; }
+    .font-lora { font-family: 'Lora', serif; }
+
+    footer {
+      margin-top: auto;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+    footer a { color: var(--accent); text-decoration: underline; }
+
+    :focus-visible {
+      outline:2px dashed var(--accent);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none!important; transition:none!important; }
+    }
+
+    /* ---- Test layout ---- */
+    header.test-header{
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      color:#fff;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:1rem;}
+    .test-header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:.75rem;
+    }
+    .test-header h1{font-size:2rem; margin:.25rem 0;}
+    .test-header p.lead{margin:.25rem 0 0; opacity:.9;}
+
+    main#main{padding-bottom:2rem;}
+
+    .grid{display:grid; gap:1rem;}
+    @media(min-width:960px){
+      .grid{grid-template-columns:380px 1fr;}
+    }
+    .card{
+      background:var(--panel);
+      border-radius:16px;
+      padding:1rem;
+      box-shadow:0 4px 14px rgba(0,0,0,.08);
+    }
+    .controls{display:flex; gap:.5rem; flex-wrap:wrap; align-items:center;}
+    .btn,button{
+      background:var(--btn);
+      color:#fff;
+      border:0;
+      border-radius:9999px;
+      padding:.6rem 1rem;
+      cursor:pointer;
+    }
+    button:hover,.btn:hover{background:var(--btn2);}
+    .ghost{background:transparent; border:2px solid #fff;}
+    .muted{color:var(--muted);}
+    .progress{
+      height:10px;
+      background:#e5e7eb;
+      border-radius:999px;
+      overflow:hidden;
+      margin:.5rem 0 1rem;
+    }
+    .bar{
+      height:100%;
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      width:0%;
+    }
+    fieldset{border:0; padding:0; margin:0;}
+    legend{font-weight:700; margin-bottom:.75rem;}
+    label.opt{
+      display:block;
+      background:#fff;
+      border-radius:12px;
+      padding:.6rem .75rem;
+      margin:.5rem 0;
+      border:1px solid #e5e7eb;
+      cursor:pointer;
+    }
+    input[type=radio]{margin-right:.5rem;}
+    .navRow{display:flex; gap:.5rem; margin-top:.75rem; align-items:center;}
+    .pill{
+      display:inline-block;
+      padding:.2rem .6rem;
+      border-radius:999px;
+      font-size:.8rem;
+      background:#eee;
+      margin-right:.25rem;
+    }
+    .result h2{margin-top:0;}
+
+    /* ——— Spiral Viz ——— */
+    .viz{display:flex; align-items:center; justify-content:center; padding:1rem;}
+    svg{max-width:360px; width:100%; height:auto; overflow:visible;}
+    .ring path{fill:none; stroke:#ddd; stroke-width:16; opacity:.7;}
+    .ring path.active{stroke:url(#grad); opacity:1;}
+    .pulse{animation:pulse 1.6s ease-in-out infinite;}
+    @keyframes pulse{
+      0%{filter:drop-shadow(0 0 0 rgba(75,0,130,.0))}
+      50%{filter:drop-shadow(0 0 10px rgba(75,0,130,.35))}
+      100%{filter:drop-shadow(0 0 0 rgba(75,0,130,.0))}
+    }
+
+    .tips{
+      background:#fff;
+      border:1px dashed #e5e7eb;
+      border-radius:14px;
+      padding:1rem;
+    }
+    .kicker{font-size:.9rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+    .lvlname{font-weight:700;}
+    .footer{margin-top:2rem; text-align:center; color:#666; font-size:.9rem;}
+    .danger{background:#fff8f8; border:1px solid #ffe1e1; padding:.75rem; border-radius:12px;}
+  
+    /* Wide-menu fallback: collapse long navigation on laptop widths */
+    @media (min-width:769px) and (max-width:1900px){
+      .menu-toggle{display:inline-block!important}
+      #primary-nav{display:none!important;position:absolute!important;top:100%!important;left:0!important;width:100%!important;background:linear-gradient(to right,#4b0082,#800080)!important;padding:1rem!important;box-shadow:0 4px 8px rgba(0,0,0,.2)!important;flex-direction:column!important;gap:.5rem!important;z-index:50!important;max-height:calc(100vh - 88px);overflow-y:auto}
+      #primary-nav.active{display:flex!important}
+    }
+    @media (min-width:1901px){
+      .nav-wrap,nav .container{max-width:1800px!important}
+    }
+</style>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/><link href="assets/site.css" rel="stylesheet"/><script>try{var ul=new URLSearchParams(location.search).get("lang");if(ul==="uk"||ul==="en")localStorage.setItem("lang",ul)}catch(e){}</script></link><link href="assets/theme-v2.css" rel="stylesheet"/>
+<style id="awareness-level-number-fix">
+/* Page-only fix: readable numbered circles in the level legend (UK/EN). */
+body.awareness-page #vizPanel ul li > .pill {
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  vertical-align:middle!important;
+  flex:0 0 auto!important;
+  width:34px!important;
+  height:34px!important;
+  padding:0!important;
+  margin:0 5px 0 0!important;
+  border-radius:50%!important;
+  background:#d7b87e!important;
+  border:1px solid #e8cea0!important;
+  color:#152236!important;
+  font:700 15px/1 system-ui, sans-serif!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+</style></head>
+<body class="legacy-page awareness-page">
+<a class="skip-link" href="#main">Перейти до основного вмісту</a>
+<nav role="navigation">
+<div class="nav-wrap">
+<a aria-label="Перейти на головну сторінку / Go to homepage" class="logo" href="index.html">
+<img alt="Логотип Я є / I Am logo" decoding="async" height="32" src="images/favicon-v2.png" width="32"/>
+<span>
+<span class="lang-uk">Я є</span>
+<span class="lang-en" hidden="">I Am</span>
+</span>
+</a>
+<button aria-controls="primary-nav" aria-expanded="false" aria-label="Переключити меню навігації / Toggle navigation menu" class="menu-toggle">☰</button>
+<button aria-label="Переключити мову / Toggle language" aria-pressed="false" class="lang-toggle" type="button">UA / EN</button>
+<ul id="primary-nav">
+<li><a href="index.html"><span class="lang-uk">Головна</span><span class="lang-en" hidden="">Home</span></a></li>
+<li><a href="archetypes.html"><span class="lang-uk">Про архетипи</span><span class="lang-en" hidden="">About Archetypes</span></a></li>
+<li><a href="about.html"><span class="lang-uk">Про мене</span><span class="lang-en" hidden="">About Me</span></a></li>
+<li><a href="tools.html"><span class="lang-uk">Інструменти</span><span class="lang-en" hidden="">Tools</span></a></li>
+<li><a href="archetype-test.html"><span class="lang-uk">Тест архетипів</span><span class="lang-en" hidden="">Archetype Test</span></a></li>
+<li><a href="unravel-situation.html"><span class="lang-uk">Розплутувач ситуації</span><span class="lang-en" hidden="">Situation Unraveler</span></a></li>
+<li><a href="map-awareness-test-v2.html"><span class="lang-uk">Мапа усвідомлення — Тест V2</span><span class="lang-en" hidden="">Map of Awareness — Test V2</span></a></li>
+<li><a href="mind-exploration.html"><span class="lang-uk">Мисленне Дослідження</span><span class="lang-en" hidden="">Mental Exploration</span></a></li>
+<li><a href="unravel-anxiety.html"><span class="lang-uk">Розплутування Тривоги</span><span class="lang-en" hidden="">Anxiety Knot Unraveler</span></a></li>
+<li><a href="blog.html"><span class="lang-uk">Як жити далі?</span><span class="lang-en" hidden="">How to Live On?</span></a></li>
+<li><a href="humor.html"><span class="lang-uk">Гумор</span><span class="lang-en" hidden="">Humor</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Прайс</span><span class="lang-en" hidden="">Pricing</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Контакти</span><span class="lang-en" hidden="">Contact</span></a></li>
+</ul>
+</div>
+</nav>
+<main id="main">
+<header class="test-header">
+<div class="wrap test-header-inner">
+<div>
+<h1>
+<span class="lang-uk">Мапа усвідомлення — Тест (V2, покроковий)</span>
+<span class="lang-en" hidden="">Map of Awareness — Test (V2.1)</span>
+</h1>
+<p class="lead">
+<span class="lang-uk">42 питання. По одному за раз. <strong>Без повернення назад.</strong> Обирай відповідь, яка першою здається схожою на тебе.</span>
+<span class="lang-en" hidden="">42 questions, one at a time. <strong>No going back.</strong> Pick the answer that first feels most like you.</span>
+</p>
+</div>
+<div class="controls">
+<button class="ghost" hidden="" id="btnQuit" title="Почати заново / Start over">
+<span class="lang-uk">Скинути</span>
+<span class="lang-en" hidden="">Reset</span>
+</button>
+</div>
+</div>
+</header>
+<div class="wrap grid">
+<!-- Left: Spiral + legend -->
+<aside class="card" id="vizPanel">
+<div class="viz">
+<svg aria-label="Спіраль рівнів усвідомлення / Spiral of awareness levels" role="img" viewbox="0 0 320 320">
+<defs>
+<lineargradient id="grad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#f3d69d"></stop>
+<stop offset="100%" stop-color="#b9904d"></stop>
+</lineargradient>
+</defs>
+<g class="ring" id="ring7"></g>
+<g class="ring" id="ring6"></g>
+<g class="ring" id="ring5"></g>
+<g class="ring" id="ring4"></g>
+<g class="ring" id="ring3"></g>
+<g class="ring" id="ring2"></g>
+<g class="ring" id="ring1"></g>
+</svg>
+</div>
+<div>
+<div class="kicker lang-uk">Рівні (фази одного процесу)</div>
+<div class="kicker lang-en" hidden="">Levels (phases of one process)</div>
+<ul class="lang-uk" style="margin:.5rem 0 0; padding-left:1.1rem">
+<li><span class="pill">1.</span><span class="lvlname">Інстинктивний</span> — Спочатку реагуєш, потім думаєш.</li>
+<li><span class="pill">2.</span><span class="lvlname">Соціально-емоційний</span> — Почуття, звички й думка інших сильно впливають.</li>
+<li><span class="pill">3.</span><span class="lvlname">Раціональний</span> — Логіка, цілі, користь і зрозумілий результат.</li>
+<li><span class="pill">4.</span><span class="lvlname">Саморефлексивний</span> — Перевіряєш не тільки світ, а й себе.</li>
+<li><span class="pill">5.</span><span class="lvlname">Екзистенційний</span> — Можеш жити й діяти без повної певності.</li>
+<li><span class="pill">6.</span><span class="lvlname">Системний</span> — Бачиш зв’язки, причини, наслідки й своє місце в них.</li>
+<li><span class="pill">7.</span><span class="lvlname">Присутність</span> — Менше контролю, більше прямого бачення того, що є.</li>
+</ul>
+<ul class="lang-en" hidden="" style="margin:.5rem 0 0; padding-left:1.1rem">
+<li><span class="pill">1.</span><span class="lvlname">Instinctive</span> — You react first and think later.</li>
+<li><span class="pill">2.</span><span class="lvlname">Social / emotional</span> — Feelings, habits, and other people strongly influence you.</li>
+<li><span class="pill">3.</span><span class="lvlname">Rational</span> — Logic, goals, usefulness, and clear results.</li>
+<li><span class="pill">4.</span><span class="lvlname">Self-reflective</span> — You check not only the world, but yourself too.</li>
+<li><span class="pill">5.</span><span class="lvlname">Existential</span> — You can live and act without complete certainty.</li>
+<li><span class="pill">6.</span><span class="lvlname">Systemic</span> — You see connections, causes, consequences, and your place in them.</li>
+<li><span class="pill">7.</span><span class="lvlname">Presence</span> — Less control, more direct contact with what is happening.</li>
+</ul>
+</div>
+</aside>
+<!-- Right: Runner / Result -->
+<section class="card" id="runner">
+<div id="stepPanel">
+<div class="progress"><div class="bar" id="bar" style="width:0%"></div></div>
+<fieldset>
+<legend id="qText">Почнемо.</legend>
+<div id="opts"></div>
+<div class="navRow">
+<span class="muted" id="hint">Обери варіант, щоб перейти далі.</span>
+<button disabled="" id="btnNext">Далі</button>
+</div>
+</fieldset>
+</div>
+<div class="result" hidden="" id="resultPanel">
+<h2>
+<span class="lang-uk">Результат</span>
+<span class="lang-en" hidden="">Result</span>
+</h2>
+<p class="lead" id="resSummary"></p>
+<div id="resBadges" style="margin:.5rem 0 1rem"></div>
+<div class="viz" id="vizEcho"></div>
+<h3>
+<span class="lang-uk">Що з цим робити</span>
+<span class="lang-en" hidden="">What to do with it</span>
+</h3>
+<div class="tips">
+<ul class="lang-uk" style="margin:.5rem 0; padding-left:1.1rem">
+<li><strong>Це не оцінка.</strong> Результат лише показує, які відповіді в тебе зараз траплялися найчастіше.</li>
+<li><strong>Не намагайся отримати «вищий» результат.</strong> Тут немає правильного рівня — важливіше побачити свою реальну картину.</li>
+<li><strong>Дивись не тільки на перше місце.</strong> Другий і третій результати теж показують звичні способи реагування.</li>
+<li><strong>Перевір себе на красиві відповіді.</strong> Якщо часто обирав те, як «хотілося б бути», результат може показувати образ себе, а не звичну поведінку.</li>
+</ul>
+<ul class="lang-en" hidden="" style="margin:.5rem 0; padding-left:1.1rem">
+<li><strong>This is not a grade.</strong> The result only shows which kinds of answers appeared most often for you right now.</li>
+<li><strong>Do not try to get a “higher” result.</strong> There is no correct level here; the useful part is seeing your actual pattern.</li>
+<li><strong>Look beyond first place.</strong> Your second and third results also show familiar ways of reacting.</li>
+<li><strong>Check for idealised answers.</strong> If you often chose how you would like to be, the result may reflect your self-image more than your usual behaviour.</li>
+</ul>
+</div>
+<h3 style="margin-top:1.25rem">
+<span class="lang-uk">Детальний опис</span>
+<span class="lang-en" hidden="">Detailed breakdown</span>
+</h3>
+<div id="resDetails"></div>
+<div class="footer">
+<button class="btn" id="btnRetake" style="margin:.5rem auto 0">
+<span class="lang-uk">Пройти ще раз</span>
+<span class="lang-en" hidden="">Take again</span>
+</button>
+<button class="btn" hidden="" id="btnShare" style="margin:.5rem auto 0">
+<span class="lang-uk">Поділитися</span>
+<span class="lang-en" hidden="">Share</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<aside class="yaie-next-links" style="max-width:990px;margin:35px auto 50px;padding:22px;background:#172334;color:#e9eff6;border:1px solid #344459;border-radius:16px"><div class="yaie-i18n-next" data-en="Where to go next" data-uk="Що можна зробити далі">Що можна зробити далі</div><div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:12px"><a class="yaie-next-link" data-en="Other tools" data-uk="Інші інструменти" data-url="tools.html" href="tools.html" style="border:1px solid #66798f;background:#24354a;border-radius:9px;padding:11px 16px;color:#f5d9aa;text-decoration:none">Інші інструменти</a><a class="yaie-next-link" data-en="Situation Unraveler" data-uk="Розплутувач ситуацій" data-url="unravel-situation.html" href="unravel-situation.html" style="border:1px solid #66798f;background:#24354a;border-radius:9px;padding:11px 16px;color:#f5d9aa;text-decoration:none">Розплутувач ситуацій</a></div></aside><footer>
+<p>
+<span class="lang-uk">© 2025 Я є. Усі права захищено.</span>
+<span class="lang-en" hidden="">© 2025 I Am. All rights reserved.</span>
+</p>
+</footer>
+<noscript>
+<div class="container" style="padding:1rem;">
+<p>JavaScript вимкнено. Перемикання мов, тест і мобільне меню працюють лише з увімкненим JavaScript.</p>
+</div>
+</noscript>
+<script>
+    // ——— Мовний модуль (такий самий принцип, як на головній), + хук для тесту ———
+    (function(){
+      const TEXT_UA = {
+        title: 'Мапа усвідомлення — Тест (V2, покроковий) | Я є',
+        desc:  '42 короткі питання про звичні реакції та вибори. Відповідай так, як буває насправді, а не як «правильно».',
+        ogLocale: 'uk_UA',
+        toggle: 'UA / EN'
+      };
+      const TEXT_EN = {
+        title: 'Map of Awareness — Test (V2.1) | I Am',
+        desc:  '42 short questions about your usual reactions and choices. Answer how it really is, not how it “should” be.',
+        ogLocale: 'en_US',
+        toggle: 'EN / UA'
+      };
+
+      function applyLang(lang){
+        const isEN = (lang === 'en');
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('.lang-uk').forEach(el => el.hidden = isEN);
+        document.querySelectorAll('.lang-en').forEach(el => el.hidden = !isEN);
+
+        const cfg = isEN ? TEXT_EN : TEXT_UA;
+        document.title = cfg.title;
+        const mDesc = document.querySelector('meta[name="description"]');
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        const ogDesc  = document.querySelector('meta[property="og:description"]');
+        const ogLoc   = document.querySelector('meta[property="og:locale"]');
+        if (mDesc)  mDesc.content = cfg.desc;
+        if (ogTitle) ogTitle.content = cfg.title;
+        if (ogDesc)  ogDesc.content = cfg.desc;
+        if (ogLoc)   ogLoc.content = cfg.ogLocale;
+
+        const btn = document.querySelector('.lang-toggle');
+        if (btn){
+          btn.textContent = cfg.toggle;
+          btn.setAttribute('aria-pressed', String(isEN));
+        }
+
+        localStorage.setItem('lang', lang);
+
+        // дати знати тесту, що мова змінилася
+        if (window.__onLangChange) {
+          window.__onLangChange(lang);
+        }
+      }
+
+      function initLang(){
+        const saved = localStorage.getItem('lang');
+        const prefer = saved || 'uk';
+        applyLang(prefer);
+      }
+
+      window.__lang = { applyLang };
+
+      document.addEventListener('DOMContentLoaded', initLang);
+
+      document.addEventListener('DOMContentLoaded', function(){
+        const btn = document.querySelector('.lang-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          const cur = document.documentElement.lang || 'uk';
+          const next = (cur === 'uk') ? 'en' : 'uk';
+          applyLang(next);
+        });
+      });
+    })();
+
+    // ——— Меню-гамбургер + підсвітка активної сторінки ———
+    (function(){
+      document.addEventListener('DOMContentLoaded', function(){
+        const menuBtn = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('primary-nav');
+        if (menuBtn && nav){
+          menuBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            const opened = nav.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', String(opened));
+            menuBtn.textContent = opened ? '✕' : '☰';
+          });
+
+          const current = window.location.pathname.split('/').pop() || 'map-awareness-test-v2.html';
+          nav.querySelectorAll('a').forEach(a => {
+            if (a.getAttribute('href') === current){
+              a.classList.add('active');
+              a.setAttribute('aria-current', 'page');
+            }
+          });
+        }
+      });
+    })();
+
+    // ——— Дані рівнів та питань (UA / EN) ———
+    const LEVELS_UK = {
+      1:{name:"Інстинктивний", key:'instinct', desc:"Спочатку реагуєш, а вже потім думаєш. У моменті головне — швидко впоратися з тим, що відбувається."},
+      2:{name:"Соціально-емоційний", key:'emosoc', desc:"На рішення сильно впливають почуття, звички й реакції інших людей."},
+      3:{name:"Раціональний", key:'rational', desc:"Любиш розуміти, що робиш, навіщо і який із цього буде результат."},
+      4:{name:"Саморефлексивний", key:'critical', desc:"Перевіряєш не тільки ситуацію, а й себе: чи не помиляєшся, чого не бачиш, де суперечиш сам собі."},
+      5:{name:"Екзистенційний", key:'existential', desc:"Можеш діяти без повної впевненості й не тікати від складних або неприємних питань."},
+      6:{name:"Системний", key:'systemic', desc:"Дивишся ширше: бачиш зв’язки, причини, наслідки й своє місце в тому, що відбувається."},
+      7:{name:"Присутність", key:'total', desc:"Менше намагаєшся все контролювати й більше бачиш те, що є, без зайвої внутрішньої боротьби."}
+    };
+
+    const LEVELS_EN = {
+      1:{name:"Instinctive", key:'instinct', desc:"You react first and think later. In the moment, the main thing is to deal with what is happening quickly."},
+      2:{name:"Social / emotional", key:'emosoc', desc:"Feelings, habits, and other people’s reactions strongly influence your choices."},
+      3:{name:"Rational", key:'rational', desc:"You like to understand what you are doing, why, and what result it may bring."},
+      4:{name:"Self-reflective", key:'critical', desc:"You check not only the situation but also yourself: where you may be wrong, what you may be missing, and where you contradict yourself."},
+      5:{name:"Existential", key:'existential', desc:"You can act without complete certainty and stay with difficult or uncomfortable questions."},
+      6:{name:"Systemic", key:'systemic', desc:"You look wider: connections, causes, consequences, and your own place in what is happening."},
+      7:{name:"Presence", key:'total', desc:"You try less to control everything and more to see what is there without extra inner struggle."}
+    };
+
+    const QUESTIONS_UK = [
+      {t:'Прокинувся вранці. Що зазвичай з’являється першим?', o:[['Треба вставати — і встаю.',1],['Кілька секунд відчуваю свій стан і тоді піднімаюсь.',6],['Одразу думаю, що сьогодні треба зробити.',3],['Ще трохи полежу, не хочу різко включатися.',2]]},
+      {t:'План зірвався. Яка реакція ближча?', o:[['Злюся: все пішло не так, як мало бути.',1],['Починаю розбиратися, хто або що все зламало.',3],['Перебудовую план і рухаюсь далі.',6],['Можу посміятися з ситуації й не чіплятися за старий план.',5]]},
+      {t:'Треба зробити нудну, але потрібну справу. Що ближче?', o:[['Роблю, але бурчу про себе.',2],['Відкладаю її й беруся за те, що цікавіше.',3],['Роблю потрібне, а цікаве залишаю на потім.',6],['Не ділю це жорстко на «цікаве» і «потрібне» — дивлюсь, що зараз доречно.',7]]},
+      {t:'Посварився з близькою людиною. Що робиш?', o:[['Намагаюся довести, що я правий.',1],['Пояснюю свою логіку, щоб мене зрозуміли.',4],['Слухаю, що сталося між нами, і намагаюся повернути нормальний контакт.',6],['Пам’ятаю, що ми можемо бачити одну ситуацію зовсім по-різному.',5]]},
+      {t:'Коли думаєш про смерть, що ближче?', o:[['Це кінець. І крапка.',1],['Це невідомість, і вона лякає.',2],['Це природна частина життя.',6],['Я не знаю, що там, і не відчуваю потреби все пояснювати.',7]]},
+      {t:'Що для тебе найближче до сенсу життя?', o:[['Сім’я, робота, діти, те, що залишиться після мене.',2],['Знайти справу або шлях, який справді мій.',3],['Жити своє життя й робити те, що зараз має сенс.',6],['Мені не обов’язково мати одну велику відповідь на це питання.',7]]},
+      {t:'Людина впевнено говорить неправду. Твоя перша реакція?', o:[['Злюся й можу піти в конфлікт.',1],['Показую, де її слова не сходяться з фактами.',4],['Помічаю це й вирішую, чи взагалі варто втручатися.',6],['Думаю, навіщо їй зараз потрібна саме така версія реальності.',5]]},
+      {t:'Щось болить або тіло явно подає сигнал. Що робиш?', o:[['Терплю або ігнорую, поки можна.',1],['Хочу швидко прибрати неприємне відчуття.',2],['Дивлюся, що могло спричинити проблему, і міняю режим.',4],['Сприймаю біль як сигнал: без паніки, але й без геройства.',6]]},
+      {t:'Як тобі думка, що в житті є якийсь «вищий план»?', o:[['Так, думаю, що Бог або вища сила веде події.',2],['Не знаю, але допускаю, що щось таке може бути.',3],['Я бачу події й закономірності, але не потребую автора за ними.',6],['Часто це спосіб хоч трохи зменшити страх перед невідомим.',5]]},
+      {t:'Коли думаєш про майбутнє, що робиш частіше?', o:[['Переживаю, що може статися.',2],['Люблю все продумати й мати план.',4],['Готуюсь до того, на що можу вплинути, а далі дивлюсь по ситуації.',6],['Намагаюсь не жити майбутнім — повертаюсь до того, що є зараз.',7]]},
+
+      {t:'Зробив помилку на роботі. Що ближче?', o:[['Хочеться приховати або швидко зам’яти.',1],['Спершу думаю, чи точно це моя вина.',2],['Розбираю причину, щоб не повторити те саме.',4],['Сприймаю помилку як частину роботи й виправляю наслідки.',6]]},
+      {t:'Гроші для тебе насамперед — це…', o:[['Відчуття безпеки.',2],['Можливість самому обирати, як жити.',3],['Інструмент для конкретних задач.',4],['Ресурс, який потрібен для життя, але не визначає його сенс.',6]]},
+      {t:'Що найближче до твого розуміння любові?', o:[['Знайти «свою» людину, з якою ми доповнюємо одне одного.',2],['Стосунки, над якими обидва працюють.',3],['Щодня бути поруч не лише словами, а й діями.',6],['Бути близько, не намагаючись володіти іншою людиною.',7]]},
+      {t:'Хтось тисне на тебе статусом або авторитетом. Що робиш?', o:[['Скоріше погоджуся — йому видніше.',1],['Внутрішньо опираюся самому тиску.',2],['Прошу пояснити, на чому ґрунтується його позиція.',4],['Дивлюся не на посаду, а на те, що людина реально говорить і робить.',6]]},
+      {t:'Наскільки для тебе важливі свята, дати й традиції?', o:[['Дуже. Так прийнято, і для мене це важливо.',2],['Люблю їх за відчуття спільності й ритуал.',3],['Користуюсь ними, але не роблю з них святиню.',5],['Сприймаю їх просто як умовні позначки в часі.',7]]},
+      {t:'Коли все одночасно починає сипатися, що відбувається?', o:[['Мене накриває паніка.',1],['Сподіваюсь, що якось воно владнається.',2],['Визначаю найнеобхідніше й роблю це по черзі.',6],['Дивлюся, що вже не працює й що, можливо, пора відпустити.',5]]},
+      {t:'Хтось поруч досяг того, чого хотів. Твоя реакція?', o:[['Можу позаздрити.',1],['Це мене підштовхує теж щось робити.',3],['Дивлюся, що з його досвіду можна взяти собі.',4],['Добре для нього. Я далі займаюся своїм.',6]]},
+      {t:'Як ти відчуваєш власний вибір?', o:[['Я сам вирішую, що зі мною буде.',2],['Щось залежить від мене, щось — ні.',3],['На рішення дуже впливають попередній досвід, характер і обставини.',6],['Для мене важливіше, що я роблю зараз, ніж сперечатися, наскільки це «вільний вибір».',7]]},
+      {t:'Що для тебе релігія?', o:[['Шлях до спасіння й правильного життя.',2],['Джерело правил і моральних орієнтирів.',3],['Для когось підтримка, для когось спосіб впливати на людей.',5],['Я можу дивитися на життя без релігійного пояснення.',6]]},
+      {t:'Коли тебе хвалять, що відчуваєш?', o:[['Хочеться ще такого визнання.',1],['Приємно, хоча трохи ніяково.',2],['Приємно чути, але я не роблю з цього великої події.',6],['Можу вислухати й майже відразу про це забути.',7]]},
+
+      {t:'Коли людина хоче від системи або спеціаліста повної впевненості, що ти про це думаєш?', o:[['Якщо їй так спокійніше — нехай.',3],['У всіх різна потреба в визначеності.',4],['Часто важко витримувати невідомість, тому хочеться точної відповіді.',6],['Не бачу сенсу переконувати людину сумніватися, якщо вона сама цього не хоче.',5]]},
+      {t:'Що для тебе найважливіше у ставленні до дітей?', o:[['Щоб вони були щасливими.',2],['Дати їм правила й орієнтири.',3],['Не прикрашати реальність і вчити справлятися з нею.',6],['Бути поруч і не вирішувати наперед, якими вони «мають» стати.',5]]},
+      {t:'Що для тебе робота?', o:[['Насамперед спосіб добре заробляти.',2],['Місце, де хочу реалізувати себе.',3],['Те, що я намагаюся робити якісно, якщо вже взявся.',6],['Важлива частина життя, але не вся моя особистість.',5]]},
+      {t:'Що ти зазвичай робиш із сильними емоціями?', o:[['Вони часто несуть мене за собою.',1],['Намагаюся взяти себе в руки.',2],['Помічаю, що відчуваю, і даю собі час не діяти зопалу.',6],['Можу пережити сильну емоцію, не сприймаючи її як всю реальність.',7]]},
+      {t:'Коли голова перевантажена думками, що допомагає?', o:[['Відволіктися на телефон, серіал або щось просте.',1],['Переключитися на книгу, відео чи подкаст.',3],['Поспати, пройтися, щось зробити руками або побути в тиші.',6],['Нічого спеціального — часто шум сам стихає, якщо його не годувати.',7]]},
+      {t:'Хтось питає: «У чому сенс?» Що тобі ближче?', o:[['Можу пожартувати й придумати відповідь на ходу.',3],['Якщо не бачу сенсу — так і кажу.',6],['Спочатку хочу зрозуміти, чи це питання взагалі щось змінює.',7],['Повертаю розмову до того, що реально відбувається в житті людини.',5]]},
+      {t:'Як ти ставишся до свого тіла?', o:[['Часто думаю про форму, вагу, зовнішність.',2],['Люблю режим, дисципліну й зрозумілий план.',3],['Слухаю сигнали тіла й коригую навантаження, сон, їжу.',4],['Дбаю про тіло без культу — це частина мого життя, але не вся моя особистість.',6]]},
+      {t:'Поруч людині боляче. Що робиш?', o:[['Мені самому важко це витримати.',2],['Намагаюся підтримати словами.',3],['Дивлюся, що реально можу зробити, або просто залишаюся поруч.',6],['Не намагаюся «врятувати» людину, якщо вона цього не просить.',5]]},
+      {t:'Коли думаєш про себе, що найближче?', o:[['Я — це мій характер, досвід і моя історія.',2],['Я — той, хто приймає рішення й будує своє життя.',3],['Я можу спостерігати навіть за власними думками й реакціями.',6],['Іноді відчуття окремого «я» відходить на другий план, а залишається саме переживання моменту.',7]]},
+      {t:'Тебе навмисно провокують. Що стається?', o:[['Можу різко відповісти.',1],['Зовні тримаюсь, але всередині киплю.',2],['Помічаю провокацію й намагаюся не дати їй керувати моєю реакцією.',6],['Можу сприйняти це як чужу гру й не заходити в неї.',5]]},
+
+      {t:'Навіщо тобі план на день?', o:[['Щоб усе встигнути.',2],['Щоб рухатися до своїх цілей.',3],['Щоб не тримати все в голові й підтримувати порядок у справах.',4],['Щоб бачити, що треба зробити, а далі коригувати по ситуації.',6]]},
+      {t:'Як ти ставишся до влади й великих систем?', o:[['Без них був би хаос.',2],['Все залежить від того, які люди ними керують.',3],['Бачу в них і порядок, і механізми контролю.',5],['Користуюся правилами системи, але не вважаю її автоматично правою.',6]]},
+      {t:'Що для тебе природа?', o:[['Місце, де можна відпочити.',2],['Те, що дає сили й натхнення.',3],['Середовище, частиною якого я сам є.',6],['Не відчуваю чіткої межі між «людиною» і природою.',7]]},
+      {t:'Коли зовсім немає сил, що робиш?', o:[['Тисну на себе й усе одно змушую робити.',1],['Шукаю, чим себе підбадьорити.',3],['Залишаю тільки необхідне й відпочиваю.',6],['Якщо можу — просто даю собі відновитися без почуття провини.',7]]},
+      {t:'Бачиш, що організація або система явно бреше. Твоя реакція?', o:[['Мене це сильно злить.',1],['Хочеться публічно показати, де брехня.',4],['Перевіряю факти, роблю свої висновки й не даю себе втягнути.',6],['Розумію, навіщо системі така версія, і вирішую, чи варто витрачати на це сили.',5]]},
+      {t:'Чому люди іноді відкидають неприємну правду?', o:[['Бо не хочуть бачити очевидне.',1],['Бо не звикли перевіряти свої переконання.',3],['Бо деякі речі боляче приймати, і психіка захищається.',6],['Бо в різний момент людина готова бачити різний обсяг реальності.',5]]},
+      {t:'Що найчастіше реально рухає тобою?', o:[['Страх наслідків.',1],['Те, чого я хочу.',2],['Те, що просто потрібно зробити.',6],['Цікавість: хочу побачити, що з цього вийде.',5]]},
+      {t:'Що для тебе означає «добре вчинити»?', o:[['Зробити так, як мене вчили правильно.',2],['Зробити щось корисне для людей.',3],['Не обманювати себе щодо своїх мотивів і наслідків.',6],['Не поспішати клеїти ярлик «добре» чи «погано», а дивитися на ситуацію.',7]]},
+      {t:'Як ти ставишся до мату?', o:[['Не люблю. Для мене це грубо.',2],['Нормально, якщо не зловживати.',3],['Іноді це просто найточніша інтонація.',6],['Для мене важливіше, що людина сказала, ніж саме слово.',7]]},
+      {t:'Що ти робиш із питанням про сенс життя?', o:[['Шукаю відповідь.',3],['Сам визначаю, що надає моєму життю сенсу.',4],['Не шукаю великої формули — просто живу.',6],['Можу взагалі не ставити це питання.',7]]},
+      {t:'Помітив у собі суперечність. Що далі?', o:[['Скоріше відмахнуся від неї.',1],['Знайду пояснення, чому це нормально.',2],['Розберуся, звідки вона взялася, і що треба змінити.',4],['Можу залишити її відкритою, якщо поки немає чесної відповіді.',6]]},
+      {t:'Як ти ставишся до розмов про «вищі стани» або «вищий рівень»?', o:[['Цікаво, як туди швидше дістатися.',3],['Думаю, що це ознака більш розвиненої людини.',4],['Мені важливіше реально бачити, що зі мною відбувається, ніж гнатися за рівнем.',6],['Самі назви часто тільки заважають бачити те, що є.',7]]},
+    ];
+
+    const QUESTIONS_EN = [
+      {t:'You wake up in the morning. What usually comes first?', o:[['I need to get up — so I get up.',1],['I take a few seconds to feel how I am, then get up.',6],['I immediately think about what I need to do today.',3],['I stay in bed a little longer; I do not want to switch on too fast.',2]]},
+      {t:'A plan falls apart. Which reaction is closest?', o:[['I get angry: this is not how it was supposed to go.',1],['I start figuring out who or what caused it.',3],['I adjust the plan and keep moving.',6],['I can laugh at the situation and let the old plan go.',5]]},
+      {t:'You have to do something boring but necessary. What is closest?', o:[['I do it, but complain to myself.',2],['I put it off and do something more interesting.',3],['I do what is needed and leave the interesting part for later.',6],['I do not divide things rigidly into “interesting” and “necessary”; I look at what fits now.',7]]},
+      {t:'You argue with someone close. What do you do?', o:[['I try to prove I am right.',1],['I explain my logic so they understand me.',4],['I listen to what happened between us and try to restore normal contact.',6],['I remember that we may see the same situation very differently.',5]]},
+      {t:'When you think about death, what is closest?', o:[['It is the end. Full stop.',1],['It is unknown, and that scares me.',2],['It is a natural part of life.',6],['I do not know what comes after, and I do not need to explain everything.',7]]},
+      {t:'What feels closest to the meaning of life for you?', o:[['Family, work, children, and what I leave behind.',2],['Finding a path or work that is truly mine.',3],['Living my life and doing what makes sense now.',6],['I do not need one big answer to this question.',7]]},
+      {t:'Someone confidently says something false. Your first reaction?', o:[['I get angry and may confront them.',1],['I point out where their words do not match the facts.',4],['I notice it and decide whether it is worth getting involved.',6],['I wonder why they need this version of reality right now.',5]]},
+      {t:'Something hurts or your body clearly sends a signal. What do you do?', o:[['I endure it or ignore it as long as I can.',1],['I want quick relief from the discomfort.',2],['I look for what may have caused it and adjust my routine.',4],['I treat pain as a signal: no panic, but no heroics either.',6]]},
+      {t:'How do you feel about the idea of a “higher plan” in life?', o:[['Yes, I think God or a higher power guides events.',2],['I do not know, but I allow that something like that may exist.',3],['I see events and patterns, but I do not need an author behind them.',6],['Often it is a way to reduce fear of the unknown.',5]]},
+      {t:'When you think about the future, what do you do more often?', o:[['I worry about what may happen.',2],['I like to think things through and have a plan.',4],['I prepare for what I can influence, then adjust as things unfold.',6],['I try not to live in the future and return to what is here now.',7]]},
+
+      {t:'You make a mistake at work. What is closest?', o:[['I want to hide it or smooth it over quickly.',1],['First I think about whether it was really my fault.',2],['I look for the cause so the same thing does not happen again.',4],['I treat mistakes as part of work and fix the consequences.',6]]},
+      {t:'Money is mainly…', o:[['A sense of security.',2],['The freedom to choose how I live.',3],['A tool for specific tasks.',4],['A resource I need for life, but not what gives life meaning.',6]]},
+      {t:'What is closest to your idea of love?', o:[['Finding “my person” who completes me.',2],['A relationship both people work on.',3],['Being there every day not only in words but in actions.',6],['Being close without trying to own the other person.',7]]},
+      {t:'Someone pressures you with status or authority. What do you do?', o:[['I am more likely to agree — they probably know better.',1],['I resist the pressure itself.',2],['I ask what their position is based on.',4],['I look less at the title and more at what the person actually says and does.',6]]},
+      {t:'How important are holidays, dates, and traditions to you?', o:[['Very. This is how it is done, and it matters to me.',2],['I like the feeling of togetherness and ritual.',3],['I use them, but I do not treat them as sacred.',5],['I see them mostly as agreed markers in time.',7]]},
+      {t:'When everything starts falling apart at once, what happens?', o:[['I panic.',1],['I hope it somehow works itself out.',2],['I decide what is essential and do that step by step.',6],['I look at what is no longer working and what may need to be let go.',5]]},
+      {t:'Someone near you achieves something they wanted. Your reaction?', o:[['I may feel envy.',1],['It motivates me to do something too.',3],['I look for something useful I can learn from their experience.',4],['Good for them. I keep doing my own thing.',6]]},
+      {t:'How do you experience your own choices?', o:[['I decide what happens to me.',2],['Some things depend on me, some do not.',3],['My choices are strongly shaped by experience, personality, and circumstances.',6],['What I do now matters more to me than arguing about how “free” the choice is.',7]]},
+      {t:'What is religion for you?', o:[['A path to salvation and right living.',2],['A source of rules and moral guidance.',3],['Support for some people, and a way to influence people for others.',5],['I can look at life without a religious explanation.',6]]},
+      {t:'When someone praises you, what do you feel?', o:[['I want more of that recognition.',1],['It feels good, though a little awkward.',2],['It is nice to hear, but I do not make a big event of it.',6],['I can hear it and almost immediately move on.',7]]},
+
+      {t:'When someone wants complete certainty from a system or an expert, what do you think?', o:[['If it helps them feel calmer, fine.',3],['People differ in how much certainty they need.',4],['Uncertainty is hard to bear, so a definite answer can feel very attractive.',6],['I do not see a point in forcing someone to doubt if they do not want to.',5]]},
+      {t:'What matters most to you in how adults treat children?', o:[['That they are happy.',2],['Giving them rules and values.',3],['Not sugar-coating reality and helping them learn to deal with it.',6],['Being there without deciding in advance what they “must” become.',5]]},
+      {t:'What is work for you?', o:[['Mainly a way to earn well.',2],['A place where I want to fulfil myself.',3],['Something I try to do well if I take it on.',6],['An important part of life, but not my whole identity.',5]]},
+      {t:'What do you usually do with strong emotions?', o:[['They often carry me along.',1],['I try to pull myself together.',2],['I notice what I feel and give myself time not to act impulsively.',6],['I can feel a strong emotion without treating it as the whole reality.',7]]},
+      {t:'When your head is overloaded with thoughts, what helps?', o:[['Distracting myself with my phone, a show, or something easy.',1],['Switching to a book, video, or podcast.',3],['Sleeping, walking, doing something with my hands, or sitting in silence.',6],['Nothing special — the noise often settles if I stop feeding it.',7]]},
+      {t:'Someone asks, “What is the meaning of it all?” What is closest?', o:[['I may joke and make up an answer on the spot.',3],['If I do not see a meaning, I say so.',6],['First I want to know whether the question changes anything practical.',7],['I bring the conversation back to what is actually happening in the person’s life.',5]]},
+      {t:'How do you relate to your body?', o:[['I often think about shape, weight, or appearance.',2],['I like routine, discipline, and a clear plan.',3],['I listen to body signals and adjust sleep, food, and activity.',4],['I take care of my body without making it a cult; it is part of my life, not my whole identity.',6]]},
+      {t:'Someone close to you is in pain. What do you do?', o:[['It is hard for me to bear it too.',2],['I try to support them with words.',3],['I look at what I can actually do, or I simply stay with them.',6],['I do not try to “save” someone who is not asking to be saved.',5]]},
+      {t:'When you think about yourself, what is closest?', o:[['I am my character, experience, and story.',2],['I am the one who makes choices and builds my life.',3],['I can observe even my own thoughts and reactions.',6],['Sometimes the separate sense of “me” fades and there is just the experience of the moment.',7]]},
+      {t:'Someone deliberately provokes you. What happens?', o:[['I may snap back.',1],['I stay controlled outside but boil inside.',2],['I notice the provocation and try not to let it run my reaction.',6],['I can see it as someone else’s game and choose not to enter it.',5]]},
+
+      {t:'Why do you make a plan for the day?', o:[['To get everything done.',2],['To move toward my goals.',3],['To keep things organised and out of my head.',4],['To see what needs doing and adjust as the day unfolds.',6]]},
+      {t:'How do you relate to power and large systems?', o:[['Without them there would be chaos.',2],['It depends on the people running them.',3],['I see both order and mechanisms of control in them.',5],['I use the rules of the system but do not assume the system is automatically right.',6]]},
+      {t:'What is nature for you?', o:[['A place to rest.',2],['A source of energy and inspiration.',3],['An environment I am part of too.',6],['I do not feel a sharp boundary between “human” and nature.',7]]},
+      {t:'When you have no energy left, what do you do?', o:[['I push myself and make myself keep going.',1],['I look for something to motivate me.',3],['I leave only what is necessary and rest.',6],['If I can, I let myself recover without guilt.',7]]},
+      {t:'You see an organisation or system clearly lying. Your reaction?', o:[['It makes me very angry.',1],['I want to show publicly where the lie is.',4],['I check the facts, make my own conclusions, and avoid being pulled in.',6],['I try to understand why the system needs that version and whether it is worth my energy.',5]]},
+      {t:'Why do people sometimes reject an unpleasant truth?', o:[['Because they do not want to see what is obvious.',1],['Because they are not used to checking their beliefs.',3],['Because some things hurt to accept and the mind protects itself.',6],['Because at different times people are ready to face different amounts of reality.',5]]},
+      {t:'What most often really moves you?', o:[['Fear of consequences.',1],['What I want.',2],['What simply needs to be done.',6],['Curiosity: I want to see what happens.',5]]},
+      {t:'What does “doing the right thing” mean to you?', o:[['Doing what I was taught is right.',2],['Doing something useful for other people.',3],['Being honest with myself about my motives and the consequences.',6],['Not rushing to label something “good” or “bad” before looking at the situation.',7]]},
+      {t:'How do you feel about swearing?', o:[['I do not like it. It feels rude to me.',2],['It is fine if it is not overused.',3],['Sometimes it is simply the most accurate tone.',6],['What the person means matters more to me than the word itself.',7]]},
+      {t:'What do you do with the question of life’s meaning?', o:[['I look for an answer.',3],['I decide for myself what gives my life meaning.',4],['I do not look for one big formula; I just live.',6],['I may not ask the question at all.',7]]},
+      {t:'You notice a contradiction in yourself. What next?', o:[['I am likely to brush it aside.',1],['I find a reason why it is actually fine.',2],['I look at where it came from and what I may need to change.',4],['I can leave it open if I do not yet have an honest answer.',6]]},
+      {t:'How do you feel about talk of “higher states” or a “higher level”?', o:[['I am curious how to get there faster.',3],['I think it means a more developed person.',4],['I care more about seeing what is really happening in me than chasing a level.',6],['The labels themselves can get in the way of seeing what is actually there.',7]]},
+    ];
+
+    // ——— Візуалізація спіралі ———
+    function polar(cx, cy, r, a){ return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; }
+    function arcPath(cx, cy, r, a0, a1){
+      const p0 = polar(cx,cy,r,a0);
+      const p1 = polar(cx,cy,r,a1);
+      const x0 = p0[0], y0 = p0[1], x1 = p1[0], y1 = p1[1];
+      const large = ((a1-a0)%(Math.PI*2)>Math.PI)?1:0;
+      return 'M '+x0.toFixed(2)+' '+y0.toFixed(2)+' A '+r+' '+r+' 0 '+large+' 1 '+x1.toFixed(2)+' '+y1.toFixed(2);
+    }
+    function drawRings(){
+      const cx=160, cy=160, baseR=40, gap=16, a0=-Math.PI*0.75, sweep=Math.PI*1.5;
+      for(let lvl=1; lvl<=7; lvl++){
+        const g=document.getElementById('ring'+lvl);
+        if(!g) continue;
+        g.innerHTML='';
+        const r=baseR+(lvl-1)*gap;
+        const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+        p.setAttribute('d', arcPath(cx,cy,r,a0,a0+sweep));
+        g.appendChild(p);
+        const tx=document.createElementNS('http://www.w3.org/2000/svg','text');
+        const pos = polar(cx,cy,r,a0-0.1);
+        const lx = pos[0], ly = pos[1];
+        tx.setAttribute('x', lx);
+        tx.setAttribute('y', ly);
+        tx.textContent = String(lvl);
+        g.appendChild(tx);
+      }
+    }
+    function activateLevel(lvl){
+      for(let i=1;i<=7;i++){
+        const g=document.getElementById('ring'+i);
+        if(!g) continue;
+        const path=g.querySelector('path');
+        if(!path) continue;
+        if(i===lvl){
+          path.classList.add('active','pulse');
+        } else {
+          path.classList.remove('active','pulse');
+        }
+      }
+    }
+    drawRings();
+
+    // ——— Стейт тесту ———
+    let currentLang = localStorage.getItem('lang') || 'uk';
+    let LEVELS = (currentLang === 'en') ? LEVELS_EN : LEVELS_UK;
+    let QUESTIONS = (currentLang === 'en') ? QUESTIONS_EN : QUESTIONS_UK;
+
+    let idx=0;
+    const picks=[];
+    const counts={1:0,2:0,3:0,4:0,5:0,6:0,7:0};
+    let lastResult = null;
+
+    const qText=document.getElementById('qText');
+    const optsDiv=document.getElementById('opts');
+    const btnNext=document.getElementById('btnNext');
+    const bar=document.getElementById('bar');
+    const btnQuit=document.getElementById('btnQuit');
+    const hintSpan=document.getElementById('hint');
+
+    const resPanel=document.getElementById('resultPanel');
+    const resSummary=document.getElementById('resSummary');
+    const resBadges=document.getElementById('resBadges');
+    const vizEcho=document.getElementById('vizEcho');
+    const resDetails=document.getElementById('resDetails');
+    const btnRetake=document.getElementById('btnRetake');
+    const btnShare=document.getElementById('btnShare');
+
+    function uiText(key){
+      const uk = {
+        hint: 'Обери варіант, щоб перейти далі.',
+        next: 'Далі',
+        legendStart: 'Почнемо.',
+        mark: 'Твоя позначка',
+        total: 'Всього',
+        consistencyHigh: 'висока',
+        consistencyMidLow: 'середня/низька',
+        consistencyLabel: 'Узгодженість',
+        shareCopied: 'Посилання скопійовано',
+        share: 'Поділитися'
+      };
+      const en = {
+        hint: 'Choose an option to move on.',
+        next: 'Next',
+        legendStart: 'Let’s start.',
+        mark: 'Your mark',
+        total: 'Total',
+        consistencyHigh: 'high',
+        consistencyMidLow: 'medium/low',
+        consistencyLabel: 'Consistency',
+        shareCopied: 'Link copied',
+        share: 'Share'
+      };
+      return (currentLang === 'en' ? en : uk)[key];
+    }
+
+    function renderStep(){
+      const q=QUESTIONS[idx];
+      if(!q) return;
+      qText.textContent=(idx+1)+'. '+q.t;
+      optsDiv.innerHTML='';
+      btnNext.disabled=true;
+      q.o.forEach(function(item,oi){
+        const label = item[0];
+        const lvl = item[1];
+        const id='q'+idx+'_o'+oi;
+        const lab=document.createElement('label');
+        lab.className='opt';
+        const input=document.createElement('input');
+        input.type='radio';
+        input.name='cur';
+        input.value=String(lvl);
+        input.id=id;
+        input.addEventListener('change',function(){btnNext.disabled=false;});
+        const span=document.createElement('span');
+        span.textContent=label;
+        lab.appendChild(input);
+        lab.appendChild(span);
+        optsDiv.appendChild(lab);
+      });
+      bar.style.width=String(Math.round(idx*100/QUESTIONS.length))+'%';
+      hintSpan.textContent = uiText('hint');
+      btnNext.textContent = uiText('next');
+      // блокування повернення назад: просто оновлюємо state URL
+      if (window.history && window.history.replaceState){
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+
+    function next(){
+      const sel=document.querySelector('input[name="cur"]:checked');
+      if(!sel) return;
+      const v=Number(sel.value);
+      picks.push(v);
+      if (counts.hasOwnProperty(v)){ counts[v]++; }
+      idx++;
+      if(idx<QUESTIONS.length){
+        renderStep();
+      } else {
+        finish();
+      }
+    }
+
+    if(btnNext){
+      btnNext.addEventListener('click', next);
+    }
+    if(btnQuit){
+      btnQuit.addEventListener('click', function(){ location.reload(); });
+    }
+
+    function compute(){
+      const total=picks.length;
+      const arr=Object.keys(counts).map(function(k){
+        return {lvl:Number(k), n:counts[k]};
+      });
+      arr.sort(function(a,b){
+        if (b.n !== a.n) return b.n - a.n;
+        return b.lvl - a.lvl;
+      });
+      const top=arr[0];
+      const second=arr[1];
+      const spread=top.n-second.n;
+      const hi=counts[6]+counts[7];
+      const mid=counts[4]+counts[5];
+      const borrowed=(hi>=Math.ceil(total*0.5) && mid < Math.ceil(total*0.2));
+      return {counts:counts, totalAnswered: total, top:top, second:second, spread:spread, borrowed:borrowed};
+    }
+
+    function pct(n,total){
+      return total ? Math.round(n*100/total) : 0;
+    }
+
+    function renderResult(R){
+      lastResult = R;
+      var L=LEVELS[R.top.lvl];
+      activateLevel(R.top.lvl);
+
+      if(currentLang === 'en'){
+        resSummary.innerHTML = uiText('mark') + ': <strong>'+R.top.lvl+'. '+L.name+'</strong>. '+L.desc;
+      } else {
+        resSummary.innerHTML = uiText('mark') + ': <strong>'+R.top.lvl+'. '+L.name+'</strong>. '+L.desc;
+      }
+
+      var consistencyWord = (R.spread>=3 ? uiText('consistencyHigh') : uiText('consistencyMidLow'));
+      resBadges.innerHTML =
+        '<span class="pill">'+uiText('total')+': '+R.totalAnswered+'/42</span>'+
+        '<span class="pill">'+R.top.lvl+': '+R.top.n+' ('+pct(R.top.n,R.totalAnswered)+'%)</span>'+
+        '<span class="pill">'+R.second.lvl+': '+R.second.n+' ('+pct(R.second.n,R.totalAnswered)+'%)</span>'+
+        '<span class="pill">'+uiText('consistencyLabel')+': '+consistencyWord+'</span>'+
+        (R.borrowed ? (currentLang === 'en'
+          ? ' <span class="pill" style="background:#fff3cd">Idealised answers?</span>'
+          : ' <span class="pill" style="background:#fff3cd">Красиві відповіді?</span>'
+        ) : '');
+
+      // невеликий дублікат спіралі
+      var mainViz = document.querySelector('.viz');
+      if(mainViz){
+        vizEcho.innerHTML = mainViz.innerHTML;
+      }
+
+      var lines=[];
+      for(var lvl=1; lvl<=7; lvl++){
+        var c=R.counts[lvl];
+        var meta=LEVELS[lvl];
+        var tag='';
+        if(lvl===R.top.lvl){ tag = (currentLang === 'en' ? ' (leading)' : ' (провідний)'); }
+        else if(lvl===R.second.lvl){ tag = (currentLang === 'en' ? ' (second)' : ' (другий)'); }
+        lines.push(
+          '<p><strong>'+lvl+'. '+meta.name+tag+'</strong>: '+c+' — '+pct(c,R.totalAnswered)+'%. <em>'+meta.desc+'</em></p>'
+        );
+      }
+
+      if(R.borrowed){
+        if(currentLang === 'en'){
+          lines.push(
+            '<div class="danger"><strong>Possible idealised answers.</strong> You chose many 6–7 options but very few 4–5 ones. Think back: did you answer how you usually act, or how you would like to see yourself? If needed, retake the test more literally.</div>'
+          );
+        } else {
+          lines.push(
+            '<div class="danger"><strong>Можливо, частина відповідей була «красивою».</strong> У тебе багато варіантів 6–7 і мало 4–5. Згадай: ти відповідав так, як зазвичай робиш, чи так, як хотів би себе бачити? Якщо сумніваєшся — можна пройти тест ще раз простіше й буквальніше.</div>'
+          );
+        }
+      }
+
+      resDetails.innerHTML = lines.join('');
+
+      if(btnShare){
+        btnShare.hidden=false;
+        // оновлюємо текст кнопки під мову
+        var shareLabel = (currentLang === 'en' ? 'Share' : 'Поділитися');
+        btnShare.querySelector('.lang-en') && (btnShare.querySelector('.lang-en').hidden = (currentLang!=='en'));
+        btnShare.querySelector('.lang-uk') && (btnShare.querySelector('.lang-uk').hidden = (currentLang==='en'));
+        btnShare.addEventListener('click', function(){
+          var payload={counts:R.counts, top:R.top, second:R.second, t:Date.now()};
+          var s = encodeURIComponent(btoa(JSON.stringify(payload)));
+          var url = window.location.origin + window.location.pathname + '?r=' + s;
+          if (navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(url).then(function(){
+              btnShare.textContent = uiText('shareCopied');
+              setTimeout(function(){
+                btnShare.textContent = uiText('share');
+              },1200);
+            }).catch(function(){
+              alert(url);
+            });
+          } else {
+            alert(url);
+          }
+        }, { once:true });
+      }
+    }
+
+    function finish(){
+      var stepPanel=document.getElementById('stepPanel');
+      stepPanel.hidden=true;
+      resPanel.hidden=false;
+      bar.style.width='100%';
+      btnQuit.hidden=false;
+      var R=compute();
+      renderResult(R);
+      try{
+        localStorage.setItem('thinking_v2_result_step', JSON.stringify(R));
+      }catch(e){}
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    if(btnRetake){
+      btnRetake.addEventListener('click', function(){ location.reload(); });
+    }
+
+    // запуск
+    qText.textContent = uiText('legendStart');
+    renderStep();
+
+    // ——— Відновлення по шарингу (тільки результат) ———
+    (function(){
+      var u = new URL(window.location.href);
+      var r = u.searchParams.get('r');
+      if(!r) return;
+      try{
+        var obj = JSON.parse(atob(decodeURIComponent(r)));
+        var countsRestored = obj.counts || {};
+        // заміна внутрішнього counts
+        for(var k in counts){
+          if(countsRestored.hasOwnProperty(k)){
+            counts[k] = countsRestored[k];
+          }
+        }
+        var total = Object.values(counts).reduce(function(a,b){return a+b;},0);
+        var top = obj.top;
+        var second = obj.second;
+        var R = {
+          counts: counts,
+          top: top,
+          second: second,
+          totalAnswered: total,
+          spread: top.n - second.n,
+          borrowed: false
+        };
+        var stepPanel=document.getElementById('stepPanel');
+        stepPanel.hidden=true;
+        resPanel.hidden=false;
+        drawRings();
+        activateLevel(R.top.lvl);
+        renderResult(R);
+        btnQuit.hidden=false;
+      }catch(e){}
+    })();
+
+    // ——— Реакція тесту на зміну мови ———
+    window.__onLangChange = function(lang){
+      currentLang = (lang === 'en' ? 'en' : 'uk');
+      LEVELS = (currentLang === 'en') ? LEVELS_EN : LEVELS_UK;
+      QUESTIONS = (currentLang === 'en') ? QUESTIONS_EN : QUESTIONS_UK;
+
+      if (document.getElementById('stepPanel').hidden){
+        // показано результат
+        if(lastResult){
+          renderResult(lastResult);
+        }
+      } else {
+        // іде тест — просто перемалювати поточне питання
+        renderStep();
+      }
+    };
+  </script>
+<script defer="" src="assets/site.js"></script><script>document.addEventListener('DOMContentLoaded',()=>{const box=document.querySelector('.yaie-next-links');if(!box)return;let l=document.documentElement.lang==='en'?'en':'uk';box.querySelectorAll('[data-uk]').forEach(e=>e.textContent=e.dataset[l]);box.querySelectorAll('[data-url]').forEach(e=>{let u=new URL(e.dataset.url,location.href);u.searchParams.set('lang',l);e.href=u.pathname+u.search});});</script></body>
+</html>

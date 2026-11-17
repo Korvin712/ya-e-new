@@ -1,0 +1,165 @@
+/* Я є. I Am. — visual system v2. Compatible with all original interactive modules. */
+:root{color-scheme:dark;--bg:#0c1320;--surface:#172334;--surface2:#1f3044;--ink:#f5f4ef;--muted:#bac7d6;--accent:#d7b87e;--line:#344459;--primary-color:#d7b87e;--secondary-color:#b99560;--button-bg:#d7b87e;--button-hover:#f1d49d;--primary:#d7b87e;--secondary:#b99560;--btn:#d7b87e;--btn2:#f1d49d;--text:#f5f4ef;--gray-50:#101b2a;--white:#172334;--panel:#172334;--soft:#253344;--link-hover:#f1d49d;--darkslategray:#f0dfbe}
+html{background:#0c1320!important}
+body.legacy-page{background:radial-gradient(ellipse at 80% 0%,#23394d 0%,#0c1320 56%)!important;color:#f5f4ef!important;font:16px/1.65 system-ui,-apple-system,'Segoe UI',sans-serif!important;min-height:100vh;overflow-x:hidden}
+body.legacy-page :is(h1,h2,h3,h4){color:#f5f4ef!important;line-height:1.25}
+body.legacy-page :is(h1,h2){font-family:Georgia,'Times New Roman',serif!important;font-weight:500!important}
+body.legacy-page h1{font-size:clamp(32px,5vw,54px)!important}
+body.legacy-page h2{font-size:clamp(25px,3.5vw,37px)!important}
+body.legacy-page h3{font-size:clamp(19px,2.3vw,25px)!important}
+body.legacy-page :is(p,li,label,.muted,.subtitle,.hint,.small,.description){color:#c6d0dc}
+body.legacy-page :is(a,a:visited){color:#e8c58d}
+body.legacy-page a:hover{color:#f5dbad}
+body.legacy-page > nav:not(.site-head),body.legacy-page > footer:not(.site-footer){display:none!important}
+body.legacy-page .site-head{display:block!important;background:rgba(12,19,32,.97)!important;padding:0!important;flex-shrink:0!important}
+body.legacy-page .site-head .site-nav{display:flex!important}
+body.legacy-page .site-head a{color:#d8e0e8!important}
+body.legacy-page .site-head .site-nav a[aria-current="page"],body.legacy-page .site-head .site-nav a:hover{color:#f1d49d!important}
+body.legacy-page .site-head .site-nav.open{display:flex!important}
+body.legacy-page .site-footlinks{display:flex!important}
+body.legacy-page .site-footer{display:block!important;background:#0c1320!important;color:#aebaca!important}
+body.legacy-page .site-footer a{color:#edcf94!important}
+body.legacy-page :is(.bg-gray-50,.bg-white,.bg-slate-50,.bg-gray-100){background:#101b2b!important}
+body.legacy-page :is(.bg-gradient-to-r,.hero,header.test-header){background:linear-gradient(140deg,#1b2d42,#0f1b2b)!important;border-bottom:1px solid #344459!important;color:#f5f4ef!important}
+body.legacy-page .hero{padding:55px 0!important}
+body.legacy-page :is(.container,.wrap,.page-wrap){max-width:1160px}
+body.legacy-page .page-wrap{width:100%}
+body.legacy-page :is(.py-20,.py-16){padding-top:48px!important;padding-bottom:48px!important}
+body.legacy-page :is(.stage,.card,.accordion-item,.panel,.result,.output,.intro-note,.feedback-wrap,.next-step,.question-card,.stat-card,.entry-card,.block,.tile){background:#172334!important;color:#f5f4ef!important;border:1px solid #344459!important;border-radius:16px!important;box-shadow:0 14px 38px #0002!important}
+body.legacy-page :is(.stage,.card,.accordion-item,.panel,.output,.intro-note,.feedback-wrap){padding:clamp(16px,3vw,28px)!important}
+body.legacy-page :is(.stage,.card,.accordion-item,.panel,.output,.intro-note) :is(p,li,label,span){color:inherit}
+body.legacy-page :is(.accordion-header,.accordion-content){background:#172334!important;color:#f5f4ef!important}
+body.legacy-page .accordion-header{border-bottom:1px solid #344459!important}
+body.legacy-page .accordion-header:hover{background:#24354b!important}
+body.legacy-page :is(.accordion-header h3,.accordion-content,.stage h2,.output h2,.output-section h3){color:#f5f4ef!important}
+body.legacy-page :is(.text-gray-900,.text-gray-800,.text-gray-700,.text-gray-600,.text-black){color:#e5ebf3!important}
+body.legacy-page :is(.text-white){color:#f5f4ef!important}
+body.legacy-page :is(.muted,.hint,.quiet,.text-gray-500,.text-sm){color:#b9c8d8!important}
+body.legacy-page :is(input:not([type=checkbox]):not([type=radio]),textarea,select,.control-input){background:#101d2b!important;border:1px solid #58687c!important;color:#f5f4ef!important;border-radius:10px!important;max-width:100%;min-height:42px;font:inherit}
+body.legacy-page :is(input,textarea)::placeholder{color:#98a7ba!important;opacity:1}
+body.legacy-page :is(input,textarea,select):focus{border-color:#d7b87e!important;outline:2px solid #d7b87e55!important;outline-offset:1px}
+body.legacy-page :is(button.primary,button.btn,.btn-primary,.bg-indigo-600,a.primary-link,button[type=submit],#unravelBtn,#btnNext){background:#d7b87e!important;color:#111b29!important;border:1px solid #d7b87e!important;border-radius:10px!important;font-weight:700!important}
+body.legacy-page :is(button.primary,button.btn,.btn-primary,.bg-indigo-600,a.primary-link,button[type=submit],#unravelBtn,#btnNext):hover{background:#efd2a0!important}
+body.legacy-page :is(button.secondary,.ghost,.btn-outline,#resetBtn){background:#203044!important;border:1px solid #66758a!important;color:#f5f4ef!important;border-radius:10px!important}
+body.legacy-page :is(button,a,input,textarea,select):focus-visible{outline:2px solid #e4c188!important;outline-offset:3px}
+body.legacy-page :is(.progress,.bar){background:#314156}
+body.legacy-page :is(.bar>div,.progress>.bar){background:#d7b87e!important}
+body.legacy-page .intro-note{border-left:3px solid #d7b87e!important}
+body.legacy-page .intro-note :is(p,strong){color:#eed8b1!important}
+body.legacy-page :is(.next-step,.privacy-note){color:#d5dfea!important}
+body.legacy-page .next-step strong{color:#f0d7a8!important}
+body.legacy-page :is(.output-section,.accordion-item){border-color:#344459!important}
+body.legacy-page .site-head button{min-height:auto!important}
+body.legacy-page .site-head .site-language button{background:transparent!important;color:#dce4eb!important;border:1px solid #516076!important;border-radius:8px!important;font-weight:600!important}
+body.legacy-page .site-head .site-language button.active{background:#d7b87e!important;color:#111c29!important;border-color:#d7b87e!important}
+body.legacy-page .site-head .site-menu{background:transparent!important;color:#fff!important;border:1px solid #516076!important}
+body.legacy-page .site-head .site-nav a{font:500 13px/1.3 system-ui,sans-serif!important;text-decoration:none!important}
+body.legacy-page :is(.content,.article-content,.prose){color:#d2dce6!important}
+body.legacy-page img{max-width:100%;height:auto}
+body.legacy-page :is(.accordion-content,.output,section,article){overflow-wrap:anywhere}
+@media(max-width:980px){body.legacy-page .site-head .site-nav{display:none!important}body.legacy-page .site-head .site-nav.open{display:flex!important}}
+@media(max-width:700px){body.legacy-page :is(.container,.wrap,.page-wrap){padding-left:16px!important;padding-right:16px!important}body.legacy-page :is(.py-20,.py-16){padding-top:30px!important;padding-bottom:30px!important}body.legacy-page .hero{padding:32px 0!important}body.legacy-page .stage{padding:17px!important}body.legacy-page .controls{flex-direction:column;align-items:stretch}body.legacy-page .controls>*{max-width:100%}}
+/* Shield the shared header from broad legacy nav rules. */
+body.legacy-page .site-head nav.site-nav{background:transparent!important;position:static!important;top:auto!important;z-index:auto!important;padding:0!important;border:0!important;box-shadow:none!important;color:inherit!important;min-height:0!important;flex-direction:row!important}
+body.legacy-page .site-head-inner{width:100%;max-width:1160px!important;min-height:82px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;padding:9px 22px!important;gap:18px!important}
+body.legacy-page .site-head .site-language{display:flex!important;align-items:center!important;margin-left:5px!important}
+body.legacy-page .site-head .site-brand{display:flex!important;align-items:center!important;text-decoration:none!important;gap:10px!important}
+body.legacy-page .site-head .site-brand img{width:56px!important;height:56px!important;object-fit:contain!important;border-radius:12px!important}
+@media(max-width:980px){body.legacy-page .site-head nav.site-nav{display:none!important;position:absolute!important;top:100%!important;left:0!important;right:0!important;padding:16px 22px!important;background:#101b2b!important;border-bottom:1px solid #344459!important;box-shadow:0 20px 30px #0005!important}body.legacy-page .site-head nav.site-nav.open{display:flex!important;flex-direction:column!important;align-items:stretch!important}body.legacy-page .site-head-inner{min-height:70px!important}body.legacy-page .site-head .site-menu{display:block!important;margin-left:auto!important}body.legacy-page .site-head .site-brand img{width:46px!important;height:46px!important}}
+@media(max-width:420px){body.legacy-page .site-head-inner{padding:6px 12px!important;gap:8px!important}body.legacy-page .site-head .site-brand img{width:42px!important;height:42px!important}}
+
+/* v3: readable gold action buttons on imported pages (incl. Archetypes).
+   Override legacy .buttons .button {color:#fff} and inherited inline spans. */
+body.legacy-page .buttons a.button,
+body.legacy-page a.button,
+body.legacy-page .buttons a.button:visited,
+body.legacy-page a.button:visited {
+  background:#d7b87e!important;
+  color:#142033!important;
+  border:1px solid #d7b87e!important;
+  border-radius:999px!important;
+  font-weight:700!important;
+  text-decoration:none!important;
+  text-shadow:none!important;
+}
+body.legacy-page .buttons a.button :is(.lang-section,.lang-uk,.lang-en,span),
+body.legacy-page a.button :is(.lang-section,.lang-uk,.lang-en,span) {
+  color:#142033!important;
+  text-shadow:none!important;
+}
+body.legacy-page .buttons a.button:hover,
+body.legacy-page a.button:hover,
+body.legacy-page .buttons a.button:focus-visible,
+body.legacy-page a.button:focus-visible {
+  background:#f1d49d!important;
+  color:#101925!important;
+  border-color:#f1d49d!important;
+}
+
+/* V5 — unify imported form surfaces and text contrast (3 tools).
+   Avoid legacy white answer cards with inherited white site text. */
+body.legacy-page .step,
+body.legacy-page label.choice,
+body.legacy-page label.opt,
+body.legacy-page .tips,
+body.legacy-page .danger {
+  background:#1f3044!important; color:#f5f4ef!important;
+  border:1px solid #52647b!important; border-radius:12px!important;
+}
+body.legacy-page :is(.step,label.choice,label.opt,.tips,.danger) :is(h2,h3,h4,p,span,strong,em,small,label,.lang-uk,.lang-en) {
+  color:#f5f4ef!important; opacity:1!important; text-shadow:none!important;
+}
+body.legacy-page :is(.step,label.choice,label.opt,.tips,.danger) :is(.muted,.small,.hint,.text-sm){color:#c2d0de!important}
+body.legacy-page :is(.step,.choice,.opt):hover{border-color:#d7b87e!important}
+body.legacy-page label.choice:has(input:checked),
+body.legacy-page label.opt:has(input:checked){background:#35485d!important;border-color:#d7b87e!important}
+body.legacy-page .choice-question>p,
+body.legacy-page .choice-question>label{color:#f5f4ef!important}
+body.legacy-page .choice-question{border-color:#52647b!important}
+body.legacy-page .step h2{font-size:clamp(21px,3vw,29px)!important}
+body.legacy-page label.choice{display:flex!important;align-items:center!important;gap:9px!important}
+body.legacy-page label.opt{display:block!important}
+body.legacy-page label.choice input[type=radio],body.legacy-page label.opt input[type=radio],
+body.legacy-page label.choice input[type=checkbox],body.legacy-page label.opt input[type=checkbox]{
+  accent-color:#d7b87e!important;flex-shrink:0!important
+}
+body.legacy-page .tips strong,body.legacy-page .danger strong{color:#f5d9aa!important}
+/* Keep form selectors clear across languages and viewports */
+body.legacy-page input:not([type=radio]):not([type=checkbox]),body.legacy-page textarea,body.legacy-page select {background:#101d2b!important;color:#f5f4ef!important}
+body.legacy-page .step :is(textarea,input,select),body.legacy-page .stage :is(textarea,input,select){color:#f5f4ef!important}
+body.legacy-page button:disabled{opacity:.55}
+@media(max-width:700px){body.legacy-page .choice-grid{grid-template-columns:1fr!important}body.legacy-page .step{padding:18px!important}}
+
+/* V6 — Awareness Map result: legible badges and navy/gold SVG. */
+body.legacy-page.awareness-page .result .pill {
+  background:#25384e!important;
+  color:#f5e5c7!important;
+  border:1px solid #738399!important;
+  font-weight:600!important;
+  opacity:1!important;
+  text-shadow:none!important;
+  padding:7px 11px!important;
+  margin:3px 5px 3px 0!important;
+  line-height:1.35!important;
+}
+body.legacy-page.awareness-page .result .pill[style] {
+  background:#423827!important;
+  color:#ffe6ad!important;
+  border-color:#bc955c!important;
+}
+body.legacy-page.awareness-page .ring path {
+  stroke:#43556a!important;
+  opacity:1!important;
+}
+body.legacy-page.awareness-page .ring path.active {
+  stroke:url(#grad)!important;
+  opacity:1!important;
+}
+body.legacy-page.awareness-page .ring text {
+  fill:#f5e5c7!important;
+  font:600 13px/1.2 system-ui,sans-serif!important;
+  paint-order:stroke!important;
+  stroke:#172334!important;
+  stroke-width:2px!important;
+  stroke-linejoin:round!important;
+}

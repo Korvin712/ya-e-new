@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Контакти — Шукач Архетипів | Я є</title>
+<link href="https://ya-e.in.ua/contact.html" rel="canonical"/>
+<meta content="Зв’яжіться з проєктом Я є для консультацій та підтримки у самопізнанні. Telegram, email та закритий канал доступні тут." name="description"/>
+<meta content="контакти, самопізнання, консультації, telegram, архетипи, підтримка, contact, self-discovery, consultations, telegram, archetypes, support" name="keywords"/>
+<meta content="index, follow" name="robots"/>
+<!-- Open Graph -->
+<meta content="Контакти — Шукач Архетипів | Я є" property="og:title"/>
+<meta content="Зв’яжіться з проєктом Я є для консультацій та підтримки у самопізнанні. Telegram, email та закритий канал доступні тут." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="images/ya-e-og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="uk_UA" property="og:locale"/>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Lora&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{--primary-color:#4b0082;--secondary-color:#800080;--button-bg:#4c1d95;--button-hover:#5b21b6;--gray-50:#f9fafb;--white:#ffffff;--lang-toggle-bg:#ffffff;--lang-toggle-text:#000000;--lang-toggle-border:#ff0000}
+    *,*::before,*::after{box-sizing:border-box}
+    body{font-family:'Lora',serif;margin:0;padding:0;line-height:1.6;background:var(--white);color:#111;display:flex;flex-direction:column;min-height:100vh}
+    nav{background:linear-gradient(to right,var(--primary-color),var(--secondary-color));color:var(--white);padding:1rem;position:sticky;top:0;z-index:10}
+    nav .container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+    .menu-toggle{display:none;font-size:1.5rem;cursor:pointer;background:none;border:none;color:var(--white)}
+    nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0}
+    nav a{color:var(--white);text-decoration:none;padding:.5rem;display:block;font-size:.9375rem;transition:color .2s ease,transform .2s ease}
+    nav a:hover,nav a:focus{color:#FFD700;transform:scale(1.05)}
+    nav a.active{color:#FFD700;text-decoration:underline}
+    .logo-link{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--white);font-weight:bold;font-size:1.5rem}
+    .logo-img{width:32px;height:32px}
+    .lang-toggle{cursor:pointer;font-weight:bold;color:var(--lang-toggle-text);background:var(--lang-toggle-bg);border:2px solid var(--lang-toggle-border);padding:.5rem 1rem;border-radius:9999px;text-decoration:none;font-size:1.125rem;transition:background-color .3s ease,transform .2s ease}
+    .lang-toggle:hover,.lang-toggle:focus{background:#e0e0e0;transform:scale(1.05)}
+    .lang-section{display:none}.lang-section.active{display:inline}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem;flex:1}
+    .bg-gray-50{background-color:var(--gray-50)}
+    .text-white{color:var(--white)}
+    .py-16{padding-top:4rem;padding-bottom:4rem}
+    .mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-8{margin-top:2rem}.mt-2{margin-top:.5rem}
+    .text-center{text-align:center}.text-left{text-align:left}
+    .text-4xl{font-size:2.25rem}@media(min-width:768px){.md\:text-5xl{font-size:3rem}}
+    .text-lg{font-size:1.125rem}.text-sm{font-size:.875rem}
+    .font-bold{font-weight:bold}.font-lora{font-family:'Lora',serif}
+    .max-w-2xl{max-width:42rem}.mx-auto{margin-left:auto;margin-right:auto}
+    .contact-content a{color:var(--primary-color);text-decoration:underline}
+    .text-yellow-400{color:#FFD700}.underline{text-decoration:underline}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .animate-fade-in{animation:fadeIn 1s ease-in}
+    footer{background:var(--primary-color);color:var(--white);padding:1.5rem 1rem;text-align:center}
+    footer a{color:#FFD700;text-decoration:underline}
+    @media(max-width:768px){
+      .menu-toggle{display:block}
+      nav ul{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));padding:1rem;box-shadow:0 4px 8px rgba(0,0,0,.2)}
+      nav ul.active{display:flex}
+      nav .container{flex-direction:column;align-items:flex-start}
+      nav a{font-size:1rem;padding:.75rem}
+      .logo-link{font-size:1.25rem}.logo-img{width:28px;height:28px}
+      .lang-toggle{font-size:1rem;padding:.4rem .8rem}
+      .py-16{padding-top:2rem;padding-bottom:2rem}.text-4xl{font-size:2rem}.md\:text-5xl{font-size:2.5rem}
+      .text-lg{font-size:1rem}.max-w-2xl{max-width:100%}.container{padding:0 1rem}
+    }
+    @media(max-width:480px){.text-4xl{font-size:1.5rem}.md\:text-5xl{font-size:2rem}.text-lg{font-size:1rem}.container{padding:0 .5rem}}
+    @media(max-width:320px){.text-4xl{font-size:1.2rem}.container{padding:0 .25rem}}
+  
+    /* Wide-menu fallback: collapse long navigation on laptop widths */
+    @media (min-width:769px) and (max-width:1900px){
+      .menu-toggle{display:inline-block!important}
+      #primary-nav{display:none!important;position:absolute!important;top:100%!important;left:0!important;width:100%!important;background:linear-gradient(to right,#4b0082,#800080)!important;padding:1rem!important;box-shadow:0 4px 8px rgba(0,0,0,.2)!important;flex-direction:column!important;gap:.5rem!important;z-index:50!important;max-height:calc(100vh - 88px);overflow-y:auto}
+      #primary-nav.active{display:flex!important}
+    }
+    @media (min-width:1901px){
+      .nav-wrap,nav .container{max-width:1800px!important}
+    }
+</style>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/><link href="assets/site.css" rel="stylesheet"/><script>try{var ul=new URLSearchParams(location.search).get("lang");if(ul==="uk"||ul==="en")localStorage.setItem("lang",ul)}catch(e){}</script></link><link href="assets/theme-v2.css" rel="stylesheet"/></head>
+<body class="legacy-page">
+<nav role="navigation">
+<div class="container">
+<a aria-label="Перейти на головну сторінку / Go to homepage" class="logo-link" href="index.html">
+<img alt="Логотип Я є / I Am logo" class="logo-img" src="images/favicon-v2.png"/>
+<span class="logo-text">
+<span class="lang-section lang-uk active">Я є</span>
+<span class="lang-section lang-en">I Am</span>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Переключити меню навігації / Toggle navigation menu" class="menu-toggle">☰</button>
+<a aria-label="Переключити мову / Toggle language" class="lang-toggle" href="#" onclick="toggleLang();return false">UA / EN</a>
+<ul id="primary-nav">
+<li><a href="index.html"><span class="lang-uk">Головна</span><span class="lang-en" hidden="">Home</span></a></li>
+<li><a href="archetypes.html"><span class="lang-uk">Про архетипи</span><span class="lang-en" hidden="">About Archetypes</span></a></li>
+<li><a href="about.html"><span class="lang-uk">Про мене</span><span class="lang-en" hidden="">About Me</span></a></li>
+<li><a href="tools.html"><span class="lang-uk">Інструменти</span><span class="lang-en" hidden="">Tools</span></a></li>
+<li><a href="archetype-test.html"><span class="lang-uk">Тест архетипів</span><span class="lang-en" hidden="">Archetype Test</span></a></li>
+<li><a href="unravel-situation.html"><span class="lang-uk">Розплутувач ситуації</span><span class="lang-en" hidden="">Situation Unraveler</span></a></li>
+<li><a href="map-awareness-test-v2.html"><span class="lang-uk">Мапа усвідомлення — Тест V2</span><span class="lang-en" hidden="">Map of Awareness — Test V2</span></a></li>
+<li><a href="mind-exploration.html"><span class="lang-uk">Мисленне Дослідження</span><span class="lang-en" hidden="">Mental Exploration</span></a></li>
+<li><a href="unravel-anxiety.html"><span class="lang-uk">Розплутування Тривоги</span><span class="lang-en" hidden="">Anxiety Knot Unraveler</span></a></li>
+<li><a href="blog.html"><span class="lang-uk">Як жити далі?</span><span class="lang-en" hidden="">How to Live On?</span></a></li>
+<li><a href="humor.html"><span class="lang-uk">Гумор</span><span class="lang-en" hidden="">Humor</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Прайс</span><span class="lang-en" hidden="">Pricing</span></a></li>
+<li><a href="contact.html"><span class="lang-uk">Контакти</span><span class="lang-en" hidden="">Contact</span></a></li>
+</ul>
+</div>
+</nav>
+<section class="bg-gray-50 py-16">
+<div class="container max-w-2xl text-center animate-fade-in contact-content">
+<h2 class="text-4xl md:text-5xl font-bold font-lora mb-6">
+<span class="lang-section lang-uk active">Контакти</span>
+<span class="lang-section lang-en">Contact</span>
+</h2>
+<!-- UA -->
+<div class="lang-section lang-uk active">
+<p class="text-lg mb-4">Не соромся. Проходь. Тут свої.</p>
+<p class="text-lg mb-4">Напряму до мене — без посередників і форм з 2004 року:</p>
+<p class="text-lg mb-4">Електронна пошта: <a href="mailto:korvin71@meta.ua">korvin71@meta.ua</a></p>
+<p class="text-lg mb-4">Закритий канал: <a href="https://t.me/+mlK1hJzQynZhNDNi" rel="noopener noreferrer" target="_blank">Я Є — Приватна територія</a></p>
+<p class="text-lg mb-4">Viber: <a href="https://invite.viber.com/?g2=AQAwUFfdXXe5AFS7oDnJs7%2FZ02KSLEr2CevCII2NO3%2FmWWvi%2F15POQq%2FwleRwAjh" rel="noopener noreferrer" target="_blank">Я Є — Viber-спільнота</a></p>
+<p class="text-lg mb-4">Якщо не відповів — значить читаю. Якщо довго не відповідаю — значить думаю. Якщо зовсім не відповів — можливо, ти не з того всесвіту. Але спробуй ще раз.</p>
+<h2 class="text-4xl md:text-5xl font-bold font-lora mt-8 mb-6">Акція для перших 100 учасників Telegram-каналу “Я є”</h2>
+<p class="text-lg mb-4">Ще немає контенту. Ще тихо. Але вже є простір.</p>
+<p class="text-lg mb-4">І саме ви можете стати тими, хто буде в його основі.</p>
+<p class="text-lg mb-4">Перші 100 — вхід безкоштовний.</p>
+<p class="text-lg mb-4">Без зобов’язань. Просто присутність.</p>
+<p class="text-lg mb-4">Бо це не про оплату — це про людей, які відчули.</p>
+<p class="text-lg mb-4">Згодом доступ буде платним, бо в канал вкладатиметься енергія, час і практика.</p>
+<p class="text-lg mb-4">Але ви — перші. І я це пам’ятаю.</p>
+<p class="text-lg mb-4">Приєднуйся: <a href="https://t.me/+mlK1hJzQynZhNDNi" rel="noopener noreferrer" target="_blank">Я Є — Приватна територія</a></p>
+</div>
+<!-- EN -->
+<div class="lang-section lang-en">
+<p class="text-lg mb-4">Don’t be shy. Come on in. You’re among your own here.</p>
+<p class="text-lg mb-4">Reach out directly — no middlemen, no forms since 2004:</p>
+<p class="text-lg mb-4">Email: <a href="mailto:korvin71@meta.ua">korvin71@meta.ua</a></p>
+<p class="text-lg mb-4">Private channel: <a href="https://t.me/+mlK1hJzQynZhNDNi" rel="noopener noreferrer" target="_blank">I Am — Private Territory</a></p>
+<p class="text-lg mb-4">Viber: <a href="https://invite.viber.com/?g2=AQAwUFfdXXe5AFS7oDnJs7%2FZ02KSLEr2CevCII2NO3%2FmWWvi%2F15POQq%2FwleRwAjh" rel="noopener noreferrer" target="_blank">I Am — Viber Community</a></p>
+<p class="text-lg mb-4">If I didn’t reply — I’m probably reading. If it’s taking a while — I’m thinking. If I never reply — maybe you’re from the wrong universe. But hey, try again.</p>
+<h2 class="text-4xl md:text-5xl font-bold font-lora mt-8 mb-6">Special Offer for the First 100 Telegram Subscribers to “I Am”</h2>
+<p class="text-lg mb-4">There’s no content yet. It’s still quiet. But the space already exists.</p>
+<p class="text-lg mb-4">You can be part of its foundation.</p>
+<p class="text-lg mb-4">First 100 — free access.</p>
+<p class="text-lg mb-4">No obligations. Just presence.</p>
+<p class="text-lg mb-4">Later it will be paid — time, energy, and practice will go into it.</p>
+<p class="text-lg mb-4">But you — you were the first. And I’ll remember that.</p>
+<p class="text-lg mb-4">Join: <a href="https://t.me/+mlK1hJzQynZhNDNi" rel="noopener noreferrer" target="_blank">I Am — Private Territory</a></p>
+</div>
+</div>
+</section>
+<footer>
+<p>
+<span class="lang-section lang-uk active">© 2025 Я є. Усі права захищено.</span>
+<span class="lang-section lang-en">© 2025 I Am. All rights reserved.</span>
+</p>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('lang') || 'uk';
+      document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll(`.lang-${savedLang}`).forEach(el => el.classList.add('active'));
+      document.documentElement.lang = savedLang;
+
+      const langToggle = document.querySelector('.lang-toggle');
+      if (langToggle) langToggle.textContent = savedLang === 'uk' ? 'UA / EN' : 'EN / UA';
+      updateMetaAndTitle(savedLang);
+
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navUl = document.querySelector('nav ul');
+      if (menuToggle && navUl) {
+        menuToggle.addEventListener('click', () => {
+          const isExpanded = navUl.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', isExpanded);
+          menuToggle.textContent = isExpanded ? '✕' : '☰';
+        });
+        menuToggle.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); menuToggle.click(); }
+        });
+        // Закриваємо меню після кліку по пункту
+        navUl.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            if (navUl.classList.contains('active')) {
+              navUl.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded','false');
+              menuToggle.textContent = '☰';
+            }
+          });
+        });
+      }
+
+      // Підсвічення активного пункту
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      navUl.querySelectorAll('a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) link.classList.add('active');
+      });
+    });
+
+    function toggleLang(){
+      const isUk = document.querySelector('.lang-uk').classList.contains('active');
+      const newLang = isUk ? 'en' : 'uk';
+      document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll(`.lang-${newLang}`).forEach(el => el.classList.add('active'));
+      document.querySelector('.lang-toggle').textContent = newLang === 'uk' ? 'UA / EN' : 'EN / UA';
+      document.documentElement.lang = newLang;
+      localStorage.setItem('lang', newLang);
+      updateMetaAndTitle(newLang);
+    }
+
+    function updateMetaAndTitle(lang){
+      if(lang==='en'){
+        document.title = 'Contact - Seeker of Archetypes | I Am';
+        document.querySelector('meta[property="og:title"]').content = 'Contact - Seeker of Archetypes | I Am';
+        document.querySelector('meta[property="og:description"]').content = 'Reach out to the I Am project for consultations and support in self-discovery. Telegram, email, and private channel are available here.';
+        document.querySelector('meta[name="description"]').content = 'Reach out to the I Am project for consultations and support in self-discovery. Telegram, email, and private channel are available here.';
+      }else{
+        document.title = 'Контакти - Шукач Архетипів | Я є';
+        document.querySelector('meta[property="og:title"]').content = 'Контакти - Шукач Архетипів | Я є';
+        document.querySelector('meta[property="og:description"]').content = 'Зв’яжіться з проєктом Я є для консультацій та підтримки у самопізнанні. Telegram, email та закритий канал доступні тут.';
+        document.querySelector('meta[name="description"]').content = 'Зв’яжіться з проєктом Я є для консультацій та підтримки у самопізнанні. Telegram, email та закритий канал доступні тут.';
+      }
+    }
+  </script>
+<script defer="" src="assets/site.js"></script></body>
+</html>
