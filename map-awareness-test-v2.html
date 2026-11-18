@@ -18,8 +18,8 @@
 <meta content="630" property="og:image:height"/>
 <meta content="uk_UA" property="og:locale"/>
 <link href="/map-awareness-test-v2.html" rel="canonical"/>
-<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg">
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/>
+<link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Lora&amp;display=swap" rel="stylesheet"/>
 <style>
@@ -327,6 +327,13 @@ body.awareness-page #vizPanel ul li > .pill {
   text-shadow:none!important;
   opacity:1!important;
 }
+</style><style>
+/* V10 explanatory help; page-only, no scoring modifications. */
+body.awareness-page .awareness-clarifier,
+body.awareness-page .awareness-legend-note,
+body.awareness-page .awareness-result-note {background:#26394f!important;border:1px solid #52647b!important;border-left:3px solid #d7b87e!important;border-radius:10px!important;padding:12px 15px!important;color:#eaf0f6!important;font-size:.94rem!important;line-height:1.65!important;margin:12px 0 16px!important}
+body.awareness-page :is(.awareness-clarifier,.awareness-legend-note,.awareness-result-note) span:not([hidden]){color:#eaf0f6!important}
+body.awareness-page .awareness-legend-note{margin:10px 0!important}
 </style></head>
 <body class="legacy-page awareness-page">
 <a class="skip-link" href="#main">Перейти до основного вмісту</a>
@@ -369,7 +376,7 @@ body.awareness-page #vizPanel ul li > .pill {
 <p class="lead">
 <span class="lang-uk">42 питання. По одному за раз. <strong>Без повернення назад.</strong> Обирай відповідь, яка першою здається схожою на тебе.</span>
 <span class="lang-en" hidden="">42 questions, one at a time. <strong>No going back.</strong> Pick the answer that first feels most like you.</span>
-</p>
+</p><p class="awareness-clarifier"><span class="lang-uk">Якщо кілька реакцій здаються одночасними, не потрібно вгадувати, яка виникла на частку секунди раніше. Обери варіант, який найбільше схожий на твою звичну поведінку. Якщо жоден не підходить точно, обери найближчий і пам’ятай, що результат приблизний.</span><span class="lang-en" hidden="">If several reactions seem simultaneous, do not try to guess which came a split second earlier. Choose the one closest to how you usually behave. If none fits exactly, pick the nearest and remember that the result is approximate.</span></p>
 </div>
 <div class="controls">
 <button class="ghost" hidden="" id="btnQuit" title="Почати заново / Start over">
@@ -401,7 +408,7 @@ body.awareness-page #vizPanel ul li > .pill {
 </div>
 <div>
 <div class="kicker lang-uk">Рівні (фази одного процесу)</div>
-<div class="kicker lang-en" hidden="">Levels (phases of one process)</div>
+<div class="kicker lang-en" hidden="">Levels (phases of one process)</div><p class="awareness-legend-note"><span class="lang-uk">Цифри 1–7 на схемі — це номери способів реагування, перелічених нижче. Це не бали, не рейтинг і не оцінка людини.</span><span class="lang-en" hidden="">The numbers 1–7 in the diagram refer to the response patterns listed below. They are not scores, rankings or judgments of a person.</span></p>
 <ul class="lang-uk" style="margin:.5rem 0 0; padding-left:1.1rem">
 <li><span class="pill">1.</span><span class="lvlname">Інстинктивний</span> — Спочатку реагуєш, потім думаєш.</li>
 <li><span class="pill">2.</span><span class="lvlname">Соціально-емоційний</span> — Почуття, звички й думка інших сильно впливають.</li>
@@ -442,7 +449,7 @@ body.awareness-page #vizPanel ul li > .pill {
 </h2>
 <p class="lead" id="resSummary"></p>
 <div id="resBadges" style="margin:.5rem 0 1rem"></div>
-<div class="viz" id="vizEcho"></div>
+<p class="awareness-result-note"><span class="lang-uk">Що означають цифри 1–7? Це назви семи способів реагування з переліку ліворуч (на телефоні — вище). Виділене кільце показує провідний результат, а не «вищий» чи «кращий» рівень.</span><span class="lang-en" hidden="">What do numbers 1–7 mean? They refer to the seven response patterns listed on the left (above on mobile). The highlighted ring shows the most common result, not a “higher” or “better” level.</span></p><div class="viz" id="vizEcho"></div>
 <h3>
 <span class="lang-uk">Що з цим робити</span>
 <span class="lang-en" hidden="">What to do with it</span>
