@@ -324,6 +324,14 @@
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     }
 
+    /* Clear expansion affordance; shown only when a joke has hidden content. */
+    #accordion details.joke summary {display:flex;align-items:center;justify-content:space-between;gap:14px;}
+    #accordion details.joke summary .joke-title {flex:1;min-width:0;}
+    #accordion details.joke summary .joke-action {flex-shrink:0;white-space:nowrap;color:#e6c486;font-size:.88rem;font-weight:700;border:1px solid #82704f;border-radius:9px;padding:5px 9px;}
+    #accordion details.joke summary:focus-visible {outline:2px solid #e6c486;outline-offset:3px;}
+    #accordion .joke-static {padding:.75rem 1rem;border-radius:10px;margin-bottom:.75rem;border:1px solid #3b4d65;background:#1b2a3b;color:#f5f4ef;font-weight:600;}
+    @media(max-width:480px){#accordion details.joke summary{align-items:flex-start;flex-wrap:wrap}#accordion details.joke summary .joke-action{margin-left:auto}}
+
     /* Accordion styles */
     #accordion {
       margin: 0;
@@ -845,26 +853,40 @@
           rest = lines.slice(1).join('\n');
         }
 
-        const details = document.createElement('details');
-        details.className = 'joke';
-
-        const summary = document.createElement('summary');
-        summary.innerHTML = escapeHtml(summaryLine);
-        details.appendChild(summary);
-
-        if (rest.trim().length) {
-          const body = document.createElement('div');
-          body.className = 'body';
-
-          if (hasHtml) {
-            body.innerHTML = rest;
-          } else {
-            body.innerHTML = escapeHtml(rest).replace(/\n/g, '<br>');
-          }
-
-          details.appendChild(body);
+        // One-line jokes are shown in full. Longer ones have a visible expand control.
+        if (!rest.trim().length) {
+          const staticJoke = document.createElement('div');
+          staticJoke.className = 'joke joke-static';
+          staticJoke.textContent = summaryLine;
+          root.appendChild(staticJoke);
+          return;
         }
 
+        const details = document.createElement('details');
+        details.className = 'joke';
+        const summary = document.createElement('summary');
+        const title = document.createElement('span');
+        title.className = 'joke-title';
+        title.textContent = summaryLine;
+        const indicator = document.createElement('span');
+        indicator.className = 'joke-action';
+        const updateIndicator = () => {
+          indicator.textContent = details.open
+            ? (lang === 'en' ? 'Collapse ↑' : 'Згорнути ↑')
+            : (lang === 'en' ? 'Read more ↓' : 'Читати далі ↓');
+        };
+        summary.append(title, indicator);
+        details.appendChild(summary);
+        const body = document.createElement('div');
+        body.className = 'body';
+        if (hasHtml) {
+          body.innerHTML = rest;
+        } else {
+          body.innerHTML = escapeHtml(rest).replace(/\n/g, '<br>');
+        }
+        details.appendChild(body);
+        details.addEventListener('toggle', updateIndicator);
+        updateIndicator();
         root.appendChild(details);
       });
 
