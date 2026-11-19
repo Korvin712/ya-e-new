@@ -190,7 +190,35 @@
       .nav-wrap,nav .container{max-width:1800px!important}
     }
 </style>
-<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/><link href="assets/site.css" rel="stylesheet"/><script>try{var ul=new URLSearchParams(location.search).get("lang");if(ul==="uk"||ul==="en")localStorage.setItem("lang",ul)}catch(e){}</script><link href="assets/theme-v2.css" rel="stylesheet"/></head>
+<link href="images/ya-e-og.jpg" rel="icon" type="image/jpeg"/><link href="assets/site.css" rel="stylesheet"/><script>try{var ul=new URLSearchParams(location.search).get("lang");if(ul==="uk"||ul==="en")localStorage.setItem("lang",ul)}catch(e){}</script><link href="assets/theme-v2.css" rel="stylesheet"/>
+<!-- V12: readable result cards with dark site theme; scoped to this module. -->
+<style>
+body.legacy-page .output .insight {
+  background:#23374c!important;
+  color:#e9f0f8!important;
+  border:1px solid #536982!important;
+  border-left:4px solid #6983a3!important;
+}
+body.legacy-page .output .insight.info {background:#20364f!important;border-left-color:#60a5fa!important}
+body.legacy-page .output .insight.warn {background:#3d3325!important;border-left-color:#e9ad49!important}
+body.legacy-page .output .insight.good {background:#203d35!important;border-left-color:#4fbe91!important}
+body.legacy-page .output .insight :is(h3,p,span,strong,em) {
+  color:#f4f6fa!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+body.legacy-page .output .next-step {
+  background:#263a50!important;
+  color:#edf3fa!important;
+  border:1px solid #60758a!important;
+}
+body.legacy-page .output .next-step :is(h3,p,span,strong,em) {
+  color:#edf3fa!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+</style>
+</head>
 <body class="legacy-page">
 <nav role="navigation">
 <div class="container">
